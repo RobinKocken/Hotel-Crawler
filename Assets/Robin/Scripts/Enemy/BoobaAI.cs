@@ -16,9 +16,9 @@ public class BoobaAI : MonoBehaviour
     RaycastHit hit;
 
     public Vector3 playerPos;
-
-    public bool found;
     public bool seePlayer;
+    public bool found;
+    
 
     void Awake()
     {
@@ -32,7 +32,9 @@ public class BoobaAI : MonoBehaviour
 
     void Update()
     {
-        FieldOfView();
+        //FieldOfView();
+        //WalkToPlayer();
+
         Walk();
     }
 
@@ -46,11 +48,33 @@ public class BoobaAI : MonoBehaviour
         
     }
 
+    public Collider colli;
+    RaycastHit hot;
+    public Vector3 size;
+
     void Walk()
+    {
+        Debug.DrawRay(transform.position, transform.forward * 10);
+        if(Physics.Raycast(transform.position, transform.forward, out hot, 10))
+        {
+            if(hot.transform.tag == "Test")
+            {
+                GameObject bla = hot.transform.gameObject;
+                colli = bla.GetComponent<Collider>();
+
+                size = colli.bounds.size;
+
+                Debug.Log(size);
+                
+            }
+        }
+    }
+
+    void WalkToPlayer()
     {
         rb.drag = drag;
 
-        if(found)
+        if(seePlayer)
         {
             playerPos = new Vector3(player.position.x, transform.position.y, player.position.z);
 
