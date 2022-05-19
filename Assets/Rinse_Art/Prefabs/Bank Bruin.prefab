@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6544445747933386288}
   - component: {fileID: 7889551382908082581}
   - component: {fileID: 5375510593526394207}
+  - component: {fileID: 1406011342064409612}
   m_Layer: 0
   m_Name: Bank Bruin
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1406011342064409612
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879829844477529226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 4e5f56ceaaff5d14b839ed49b2028fbf, type: 3}

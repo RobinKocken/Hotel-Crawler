@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7178666956980999759}
   - component: {fileID: 6066458672544930282}
   - component: {fileID: 8346457966327639328}
+  - component: {fileID: 1358960870641366313}
   m_Layer: 0
   m_Name: Kapstok
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1358960870641366313
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553784781467520245}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2560133
+  m_Height: 2.11506
+  m_Direction: 1
+  m_Center: {x: -0.000000014901161, y: 1.0449313, z: 0.0013737977}

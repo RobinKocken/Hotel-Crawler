@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6421418977050208967}
   - component: {fileID: 7976628229539145058}
   - component: {fileID: 5284510534775361960}
+  - component: {fileID: -6746290695220772779}
   m_Layer: 0
   m_Name: Bank Rood
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-6746290695220772779
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933112237013594237}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 3f07f1c6ede1bcd4e9bb88ba4eda93cd, type: 3}
