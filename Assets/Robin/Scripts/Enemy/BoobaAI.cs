@@ -128,7 +128,7 @@ public class BoobaAI : MonoBehaviour
 
                 sizeCol = colli.bounds.size;
 
-                borderPos = hello.transform.position + (new Vector3(sizeCol.x, sizeCol.y, 0) / 2);
+                borderPos = hello.transform.position + (new Vector3(sizeCol.x, 0, 0) / 2);
                 Instantiate(help, borderPos, Quaternion.identity);
                 cool = true;
             }
