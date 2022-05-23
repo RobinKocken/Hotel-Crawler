@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public bool display;
+    public bool displayGridGizmos;
 
     public LayerMask unwalkableLayer;
     public Vector2 gridWorldSize;
@@ -82,8 +82,16 @@ public class Grid : MonoBehaviour
 
     public Node NodeFormWorldPoint(Vector3 worldPosition)
     {
-        float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
-        float percentY = (worldPosition.z + gridWorldSize.y / 2) / gridWorldSize.y;
+        //Awesome video, one problem that I encountered while testing this code is that when you pass the player position parameter to NodeFromWorldPoint
+        //you have to convert coordinates to local relative to grid object with Transform.InverseTransformPoint otherwise if your grid is not centered on 0,0,0 then it will not work:)
+
+
+        //float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
+        //float percentY = ((worldPosition.z + gridWorldSize.y / 2) / gridWorldSize.y);
+
+        float percentX = (worldPosition.x - transform.position.x) / gridWorldSize.x + 0.5f - (nodeRadius / gridWorldSize.x);
+        float percentY = (worldPosition.z - transform.position.z) / gridWorldSize.y + 0.5f - (nodeRadius / gridWorldSize.y);
+
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
 
@@ -93,45 +101,22 @@ public class Grid : MonoBehaviour
         return grid[x, y];
     }
 
-    public List<Node> path;
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x , 1, gridWorldSize.y));
-
-        if(display)
+        
+        if(grid != null && displayGridGizmos)
         {
-            if(path != null)
+            foreach(Node n in grid)
             {
-                foreach(Node n in path)
+                Gizmos.color = Color.white;
+                if(!n.walkable)
                 {
-                    Gizmos.color = Color.black;
-                    Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
+                    Gizmos.color = Color.red;
                 }
+                Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
             }
         }
-        else
-        {
-            if(grid != null)
-            {
-                foreach(Node n in grid)
-                {
-                    Gizmos.color = Color.white;
-                    if(!n.walkable)
-                    {
-                        Gizmos.color = Color.red;
-                    }
-
-                    if(path != null)
-                    {
-                        if(path.Contains(n))
-                        {
-                            Gizmos.color = Color.black;
-                        }
-                    }
-
-                    Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
-                }
-            }
-        }
+        
     }
 }
