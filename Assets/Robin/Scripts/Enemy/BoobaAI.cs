@@ -10,13 +10,7 @@ public class BoobaAI : MonoBehaviour
     Transform player;
     PlayerHealth healthPlayer;
 
-    public float boobaMovSpeed;
     public float boobaRotSpeed;
-    public float boobaJumpForce;
-    public float boobaJumpForwardForce;
-
-    bool moving;
-    bool jumped;
 
     public float sphereRange;
     public LayerMask layerPlayer;
@@ -30,7 +24,19 @@ public class BoobaAI : MonoBehaviour
 
     bool canAttack;
     bool isAttacking;
+    bool hasAttacked;
+
+    public float boobaJumpForce;
+    public float boobaJumpForwardForce;
+
     public int damage;
+
+    float startTime;
+    public float waitForSec;
+
+    //Frans vragen
+    //Retreat
+    //Dont push each other
 
     void Awake()
     {
@@ -42,7 +48,6 @@ public class BoobaAI : MonoBehaviour
     {
         
     }
-    public bool cool;
 
     Vector3 velocity;
     Vector3 prevPos;
@@ -52,31 +57,26 @@ public class BoobaAI : MonoBehaviour
         FollowPlayer();
         AttackPlayer();
 
-        velocity = transform.InverseTransformDirection(transform.position - prevPos) / Time.deltaTime;
-        prevPos = transform.position;
+        //velocity = transform.InverseTransformDirection(transform.position - prevPos) / Time.deltaTime;
+        //prevPos = transform.position;
 
-        print(velocity.z);
+        //print(velocity.z);
     }
 
     void FollowPlayer()
     {
-        if(!seePlayer || disPlayer > 6)
+        if(!seePlayer && !isAttacking || disPlayer > 6 && !isAttacking)
         {
-            moving = true;
             navBooba.SetDestination(playerPos);
             navBooba.stoppingDistance = 5;
             Vector3 lookrotation = navBooba.steeringTarget - transform.position;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), boobaRotSpeed * Time.deltaTime);
         }
-        else
-        {
-            moving = false;
-        }
     }
 
     void AttackPlayer()
     {
-        if(seePlayer && !moving && disPlayer < 6)
+        if(seePlayer && disPlayer < 6 && !hasAttacked)
         {
             canAttack = true;
         }
@@ -85,20 +85,31 @@ public class BoobaAI : MonoBehaviour
             canAttack = false;
         }
 
+        if(hasAttacked && !isAttacking)
+        {
+            if(hasAttacked && Time.time - startTime > waitForSec)
+            {
+                hasAttacked = false;
+                print("hasAttacked = false");
+            }
+        }
+
         if(canAttack)
         {
-            if(disPlayer > 2)
+            if(disPlayer > 2  && !isAttacking)
             {
+                print("DisPlay > 2");
                 navBooba.SetDestination(playerPos);
                 navBooba.stoppingDistance = 2;
                 Vector3 lookrotation = navBooba.steeringTarget - transform.position;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), boobaRotSpeed * Time.deltaTime);
             }
 
-
-
-            if(disPlayer < 2 && isAttacking)
+            if(disPlayer < 2 && !hasAttacked)
             {
+                print("DisPlay < 2, Attack");
+                isAttacking = true;
+
                 navBooba.enabled = false;
 
                 rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -107,7 +118,8 @@ public class BoobaAI : MonoBehaviour
                 rb.AddForce(transform.up * boobaJumpForce, ForceMode.Impulse);
                 rb.AddForce(transform.forward * boobaJumpForwardForce, ForceMode.Impulse);
 
-                jumped = true;
+                startTime = Time.time;
+                hasAttacked = true;
             }
         }
 
@@ -136,8 +148,8 @@ public class BoobaAI : MonoBehaviour
             Vector3 dirToPlayer = (player.position - transform.position).normalized;
             float disToPlayer = Vector3.Distance(transform.position, player.position);
 
-            Debug.DrawRay(transform.position, dirToPlayer * disToPlayer, Color.red);
-            if(Physics.Raycast(transform.position, dirToPlayer, out hit, disToPlayer))
+            Debug.DrawRay(transform.position + transform.forward * 0.3f, dirToPlayer * disToPlayer, Color.red);
+            if(Physics.Raycast(transform.position + transform.forward * 0.3f, dirToPlayer, out hit, disToPlayer))
             {
                 if(hit.transform.tag == "Player")
                 {
@@ -158,8 +170,15 @@ public class BoobaAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Ground" && jumped)
+        if(collision.transform.tag == "Player" && isAttacking)
         {
+            healthPlayer.health -= damage;
+        }
+
+        if(collision.transform.tag == "Ground" && isAttacking)
+        {
+            isAttacking = false;
+
             navBooba.enabled = true;
 
             rb.collisionDetectionMode = CollisionDetectionMode.Discrete;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
-    public Transform playerCamera;
+    public Transform orientation;
     public Rigidbody rb;
 
     public float speed;
@@ -23,10 +23,6 @@ public class FPSController : MonoBehaviour
     public bool jumped;
     public float jumpForce;
 
-    float xRotation;
-    float yRotation;
-    public float mouseSens;
-
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -40,7 +36,6 @@ public class FPSController : MonoBehaviour
     void Update()
     {
         PlayerInput();
-        Camera();
         Run();
         SpeedControl();
     }
@@ -75,13 +70,13 @@ public class FPSController : MonoBehaviour
 
         if(grounded)
         {
-            rb.AddForce(transform.forward.normalized * moveZ * speed * 10f, ForceMode.Force);
-            rb.AddForce(transform.right.normalized * moveX * speed * 10f, ForceMode.Force);
+            rb.AddForce(orientation.forward.normalized * moveZ * speed * 10f, ForceMode.Force);
+            rb.AddForce(orientation.right.normalized * moveX * speed * 10f, ForceMode.Force);
         }
         else if(!grounded)
         {
-            rb.AddForce(transform.forward.normalized * moveZ * speed * 10f * airMulti, ForceMode.Force);
-            rb.AddForce(transform.right.normalized * moveX * speed * 10f * airMulti, ForceMode.Force);
+            rb.AddForce(orientation.forward.normalized * moveZ * speed * 10f * airMulti, ForceMode.Force);
+            rb.AddForce(orientation.right.normalized * moveX * speed * 10f * airMulti, ForceMode.Force);
         }
 
         if(grounded)
@@ -135,19 +130,5 @@ public class FPSController : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * maxSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
-    }
-
-    void Camera()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
-
-        xRotation += -mouseY;
-        yRotation += mouseX;
-
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
-
-        transform.localRotation = Quaternion.Euler(0, yRotation, 0);
-        playerCamera.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
 }
