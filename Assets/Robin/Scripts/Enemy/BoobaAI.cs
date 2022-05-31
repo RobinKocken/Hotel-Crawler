@@ -34,10 +34,6 @@ public class BoobaAI : MonoBehaviour
     float startTime;
     public float waitForSec;
 
-    //Frans vragen
-    //Retreat
-    //Dont push each other
-
     void Awake()
     {
         navBooba = GetComponent<NavMeshAgent>();
@@ -49,18 +45,11 @@ public class BoobaAI : MonoBehaviour
         
     }
 
-    Vector3 velocity;
-    Vector3 prevPos;
     void Update()
     {
         FieldOfView();
         FollowPlayer();
         AttackPlayer();
-
-        //velocity = transform.InverseTransformDirection(transform.position - prevPos) / Time.deltaTime;
-        //prevPos = transform.position;
-
-        //print(velocity.z);
     }
 
     void FollowPlayer()

@@ -37,7 +37,7 @@ public class FPSController : MonoBehaviour
     {
         PlayerInput();
         Run();
-        SpeedControl();
+        //SpeedControl();
     }
 
     void FixedUpdate()
@@ -67,6 +67,9 @@ public class FPSController : MonoBehaviour
     {
         float moveZ = Input.GetAxisRaw("Vertical");
         float moveX = Input.GetAxisRaw("Horizontal");
+
+        Vector3 moveDir = new Vector3(moveX, 0, moveZ);
+        moveDir = orientation.TransformDirection(moveDir);
 
         if(grounded)
         {
