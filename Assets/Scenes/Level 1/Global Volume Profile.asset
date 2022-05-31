@@ -71,16 +71,16 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.12
+    m_Value: 0.81
   intensity:
     m_OverrideState: 1
-    m_Value: 0.86
+    m_Value: 1.42
   scatter:
     m_OverrideState: 1
-    m_Value: 0.93
+    m_Value: 0.934
   clamp:
     m_OverrideState: 1
-    m_Value: 65360.99
+    m_Value: 1
   tint:
     m_OverrideState: 1
     m_Value: {r: 0.9009434, g: 0.9170066, b: 1, a: 1}
@@ -150,35 +150,9 @@ MonoBehaviour:
   - {fileID: -2589296472934701697}
   - {fileID: -5072290104215917714}
   - {fileID: -2355775772537447010}
-  - {fileID: 1199736544133223896}
   - {fileID: 1946547588800318019}
   - {fileID: -1600962268513699271}
   - {fileID: -4751702459063779800}
---- !u!114 &1199736544133223896
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  mode:
-    m_OverrideState: 0
-    m_Value: 0
-  quality:
-    m_OverrideState: 1
-    m_Value: 2
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.339
-  clamp:
-    m_OverrideState: 0
-    m_Value: 0.05
 --- !u!114 &1946547588800318019
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -194,13 +168,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.60710996}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.7973075}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.21093005}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.53280276}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.38350916}
+    m_Value: {x: 1, y: 1, z: 1, w: -1}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
