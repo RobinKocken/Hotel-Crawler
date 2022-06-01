@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public static Action shootInput;
+    public static Action reloadInput;
 
     // Update is called once per frame
     void Update()
