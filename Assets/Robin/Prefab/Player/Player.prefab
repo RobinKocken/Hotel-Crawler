@@ -72,9 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6866996684901025270}
   - component: {fileID: 6866996684901025268}
-  - component: {fileID: 8019712272731778084}
   - component: {fileID: 6866996684901025257}
-  - component: {fileID: 6866996684901025271}
   - component: {fileID: 6866996684901025256}
   - component: {fileID: 6866996684901025259}
   - component: {fileID: 6866996684901025258}
@@ -116,19 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseInvisible: 1
---- !u!114 &8019712272731778084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6866996684901025260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e5ecc44ab79ffe47a8940ad513448c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &6866996684901025257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 1849446311}
   rb: {fileID: 0}
+  playerHealth: 100
   speed: 3
   walkingSpeed: 10
   runningSpeed: 20
@@ -154,18 +140,6 @@ MonoBehaviour:
   readyJump: 0
   jumped: 0
   jumpForce: 12
---- !u!114 &6866996684901025271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6866996684901025260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd620db8f04639140bcab40454c2792d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   ground:
     serializedVersion: 2
     m_Bits: 128
@@ -231,7 +205,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

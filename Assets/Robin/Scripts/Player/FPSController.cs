@@ -7,6 +7,8 @@ public class FPSController : MonoBehaviour
     public Transform orientation;
     public Rigidbody rb;
 
+    public int playerHealth;
+
     public float speed;
     public float walkingSpeed;
     public float runningSpeed;
@@ -23,6 +25,12 @@ public class FPSController : MonoBehaviour
     public bool jumped;
     public float jumpForce;
 
+    public LayerMask ground;
+    RaycastHit hitGround;
+    GameObject groundObject;
+    public float rayDistanceGround;
+    public float sphereRadius;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,13 +45,22 @@ public class FPSController : MonoBehaviour
     {
         PlayerInput();
         Run();
-        //SpeedControl();
+        SpeedControl();
+        RayGround();
     }
 
     void FixedUpdate()
     {
         Movement();
         Jump();
+    }
+
+    void Health()
+    {
+        if(playerHealth <= 0)
+        {
+            print("Dead");
+        }
     }
 
     void PlayerInput()
@@ -73,13 +90,13 @@ public class FPSController : MonoBehaviour
 
         if(grounded)
         {
-            rb.AddForce(orientation.forward.normalized * moveZ * speed * 10f, ForceMode.Force);
-            rb.AddForce(orientation.right.normalized * moveX * speed * 10f, ForceMode.Force);
+            rb.AddForce(orientation.forward.normalized * moveZ * speed * 10, ForceMode.Force);
+            rb.AddForce(orientation.right.normalized * moveX * speed * 10, ForceMode.Force);
         }
         else if(!grounded)
         {
-            rb.AddForce(orientation.forward.normalized * moveZ * speed * 10f * airMulti, ForceMode.Force);
-            rb.AddForce(orientation.right.normalized * moveX * speed * 10f * airMulti, ForceMode.Force);
+            rb.AddForce(orientation.forward.normalized * moveZ * speed * 10 * airMulti, ForceMode.Force);
+            rb.AddForce(orientation.right.normalized * moveX * speed * 10 * airMulti, ForceMode.Force);
         }
 
         if(grounded)
@@ -133,5 +150,35 @@ public class FPSController : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * maxSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
+    }
+
+    void RayGround()
+    {
+        if(Physics.SphereCast(transform.position, sphereRadius, -transform.up, out hitGround, rayDistanceGround, ground))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        //RayGround
+        Gizmos.color = Color.red;
+        Debug.DrawRay(transform.position, -transform.up * rayDistanceGround);
+        Gizmos.DrawWireSphere(transform.position + -transform.up * rayDistanceGround, sphereRadius);
     }
 }

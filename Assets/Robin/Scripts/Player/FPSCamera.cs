@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class FPSCamera : MonoBehaviour
 {
+    FPSController fps;
     public Transform orientation;
 
     float xRotation;
     float yRotation;
     public float mouseSens;
 
+    public float swayTime;
+    public float swayPos;
+    public float fast;
+
+    void Start()
+    {
+        InvokeRepeating("CameraSway", 0, swayTime);
+    }
+
     void Update()
     {
         Camera();
+        CameraSway();
+    }
+
+    void CameraSway()
+    {
+        Vector3 newPos = new Vector3(transform.position.x, transform.position.y + swayPos, transform.position.z);
+
+        Vector3 lerp = Vector3.Lerp(transform.position, newPos, swayTime * Time.deltaTime);
+
+        transform.position = lerp;
+    }
+
+    void Repeat()
+    {
+        swayPos -= swayPos * 2;
     }
 
     void Camera()

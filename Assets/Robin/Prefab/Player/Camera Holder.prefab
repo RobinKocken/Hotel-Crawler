@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 0}
-  mouseSens: 400
+  mouseSens: 250
 --- !u!20 &1919469587993937226
 Camera:
   m_ObjectHideFlags: 0

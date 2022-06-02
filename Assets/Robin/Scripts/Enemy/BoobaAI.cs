@@ -8,7 +8,7 @@ public class BoobaAI : MonoBehaviour
     NavMeshAgent navBooba;
     Rigidbody rb;
     Transform player;
-    PlayerHealth healthPlayer;
+    FPSController fpsController;
 
     public float boobaRotSpeed;
 
@@ -124,7 +124,7 @@ public class BoobaAI : MonoBehaviour
             {
                 inSphereRange = true;
 
-                healthPlayer = range[0].GetComponent<PlayerHealth>();
+                fpsController = range[0].GetComponent<FPSController>();
                 player = range[0].transform;
             }
         }
@@ -161,7 +161,7 @@ public class BoobaAI : MonoBehaviour
     {
         if(collision.transform.tag == "Player" && isAttacking)
         {
-            healthPlayer.health -= damage;
+            fpsController.playerHealth -= damage;
         }
 
         if(collision.transform.tag == "Ground" && isAttacking)
