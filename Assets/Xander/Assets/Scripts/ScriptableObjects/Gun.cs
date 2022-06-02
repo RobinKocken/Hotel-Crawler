@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] Transform muzzle;
+    public GameObject AmmoDisplay;
 
 
     float timeSinceLastShot;
@@ -15,6 +18,7 @@ public class Gun : MonoBehaviour
     public void Awake()
     {
         gunData.reloading = false;
+        AmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
     }
     public void Start()
     {
@@ -37,6 +41,7 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(gunData.reloadTime);
 
         gunData.currentAmmo = gunData.magSize;
+        AmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
 
         gunData.reloading = false;
     }
@@ -54,6 +59,7 @@ public class Gun : MonoBehaviour
                     damageable?.TakeDamage(gunData.damage);
                 }
                 gunData.currentAmmo--;
+                AmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
                 timeSinceLastShot = 0;
                 OnGunShot();
             }
