@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 6866996684901025270}
   - component: {fileID: 6866996684901025268}
   - component: {fileID: 6866996684901025257}
+  - component: {fileID: 6226832843742343454}
   - component: {fileID: 6866996684901025256}
   - component: {fileID: 6866996684901025259}
   - component: {fileID: 6866996684901025258}
@@ -145,6 +146,19 @@ MonoBehaviour:
     m_Bits: 128
   rayDistanceGround: 0.52
   sphereRadius: 0.5
+--- !u!114 &6226832843742343454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866996684901025260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e51b1222a0ab8c49936f95a45283971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadKey: 114
 --- !u!33 &6866996684901025256
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -202,7 +216,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866996684901025260}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 200f561bab2380d46ae01411a6c1ea15, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
