@@ -15,6 +15,7 @@ public class FPSController : MonoBehaviour
     public float maxSpeed;
     public float airMulti;
 
+    public bool moving;
     public bool running;
 
     public bool grounded;
@@ -102,10 +103,12 @@ public class FPSController : MonoBehaviour
         if(grounded)
         {
             rb.drag = drag;
+            moving = true;
         }
         else if(!grounded)
         {
             rb.drag = 0;
+            moving = true;
         }
     }
 
@@ -162,16 +165,6 @@ public class FPSController : MonoBehaviour
         {
             grounded = false;
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        
     }
 
     private void OnDrawGizmosSelected()
