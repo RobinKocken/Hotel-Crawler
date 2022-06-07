@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FPSCamera : MonoBehaviour
 {
-    FPSController fps;
+    public FPSController fps;
     public Transform orientation;
 
     float xRotation;
@@ -15,9 +15,15 @@ public class FPSCamera : MonoBehaviour
     public float swayPos;
     public float fast;
 
+    public float walkingBobbingSpeed = 14f;
+    public float bobbingAmount = 0.05f;
+
+    float defaultPosY = 0;
+    float timer = 0;
+
     void Start()
     {
-        InvokeRepeating("CameraSway", 0, swayTime);
+        InvokeRepeating("Repeat", 1, swayTime);
     }
 
     void Update()
@@ -28,11 +34,22 @@ public class FPSCamera : MonoBehaviour
 
     void CameraSway()
     {
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y + swayPos, transform.position.z);
+        //Vector3 newPos = new Vector3(transform.position.x, transform.position.y + swayPos, transform.position.z);
 
-        Vector3 lerp = Vector3.Lerp(transform.position, newPos, swayTime * Time.deltaTime);
+        //Vector3 lerp = Vector3.Lerp(transform.position, newPos, swayTime * Time.deltaTime);
 
-        transform.position = lerp;
+        //transform.position = lerp;
+
+
+        if(fps.moving == true)
+        {
+           
+        }
+        else
+        {
+
+        }
+
     }
 
     void Repeat()

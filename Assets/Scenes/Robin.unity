@@ -5357,6 +5357,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214699794}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1235468033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6866996684901025257, guid: ff671aa1037db3f4b994c8c2965e1a22,
+    type: 3}
+  m_PrefabInstance: {fileID: 6866996686398103110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35aa8e9cccd60f4ba05ca84557750cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1235668119
 GameObject:
   m_ObjectHideFlags: 0
@@ -8665,6 +8677,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
+        type: 3}
+      propertyPath: fps
+      value: 
+      objectReference: {fileID: 1235468033}
+    - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
+        type: 3}
+      propertyPath: fast
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
+        type: 3}
+      propertyPath: swayPos
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
         type: 3}
       propertyPath: swayTime
