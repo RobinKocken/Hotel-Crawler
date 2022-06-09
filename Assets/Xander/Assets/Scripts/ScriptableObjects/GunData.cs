@@ -15,6 +15,8 @@ public class GunData : ScriptableObject
     [Header("Ammo")]
     public int currentAmmo;
     public int magSize;
+    public int AmmoInInventory;
+    [Header("Gun Settings")]
     [Tooltip("in RPM")]public float fireRate;
     public float reloadTime;
     [HideInInspector] public bool reloading;

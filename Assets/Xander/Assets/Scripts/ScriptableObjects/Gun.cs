@@ -10,15 +10,20 @@ public class Gun : MonoBehaviour
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] Transform muzzle;
-    public GameObject AmmoDisplay;
+    [Header("Ammo_UI")]
+    public GameObject CurAmmoDisplay;
+    public GameObject InvAmmoDisplay;
 
 
     float timeSinceLastShot;
+    string _curAmmoDisplay;
+    string _invAmmoDisplay;
 
     public void Awake()
     {
         gunData.reloading = false;
-        AmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
+        _curAmmoDisplay = CurAmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
+        _invAmmoDisplay = CurAmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.AmmoInInventory.ToString();
     }
     public void Start()
     {
@@ -40,8 +45,13 @@ public class Gun : MonoBehaviour
 
         yield return new WaitForSeconds(gunData.reloadTime);
 
+        //removing bullets
         gunData.currentAmmo = gunData.magSize;
-        AmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
+        gunData.AmmoInInventory -= gunData.magSize;
+        //updating ammo on UI
+        _curAmmoDisplay = gunData.currentAmmo.ToString();
+        _invAmmoDisplay = gunData.AmmoInInventory.ToString();
+
 
         gunData.reloading = false;
     }
@@ -59,7 +69,7 @@ public class Gun : MonoBehaviour
                     damageable?.TakeDamage(gunData.damage);
                 }
                 gunData.currentAmmo--;
-                AmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
+                _curAmmoDisplay = gunData.currentAmmo.ToString();
                 timeSinceLastShot = 0;
                 OnGunShot();
             }

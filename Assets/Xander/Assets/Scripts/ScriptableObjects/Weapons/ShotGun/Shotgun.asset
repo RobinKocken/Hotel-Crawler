@@ -17,6 +17,7 @@ MonoBehaviour:
   maxDistance: 100
   currentAmmo: 6
   magSize: 6
+  AmmoInInventory: 0
   fireRate: 100
-  reloadTime: 2
+  reloadTime: 1.5
   reloading: 0
