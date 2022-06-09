@@ -11,50 +11,37 @@ public class FPSCamera : MonoBehaviour
     float yRotation;
     public float mouseSens;
 
-    public float swayTime;
-    public float swayPos;
-    public float fast;
+    public float walkingBobbingSpeed;
+    public float bobbingAmount;
 
-    public float walkingBobbingSpeed = 14f;
-    public float bobbingAmount = 0.05f;
-
-    float defaultPosY = 0;
-    float timer = 0;
+    float defaultPosY;
+    float timer;
 
     void Start()
     {
-        InvokeRepeating("Repeat", 1, swayTime);
+        defaultPosY = transform.localPosition.y;
     }
 
     void Update()
     {
         Camera();
-        CameraSway();
+        CameraBob();
     }
 
-    void CameraSway()
+    void CameraBob()
     {
-        //Vector3 newPos = new Vector3(transform.position.x, transform.position.y + swayPos, transform.position.z);
-
-        //Vector3 lerp = Vector3.Lerp(transform.position, newPos, swayTime * Time.deltaTime);
-
-        //transform.position = lerp;
-
-
-        if(fps.moving == true)
+        if(Mathf.Abs(fps.moveX) > 0.1f || Mathf.Abs(fps.moveZ) > 0.1f)
         {
-           
+            //Player is moving
+            timer += Time.deltaTime * walkingBobbingSpeed;
+            transform.localPosition = new Vector3(transform.localPosition.x, defaultPosY + Mathf.Sin(timer) * bobbingAmount, transform.localPosition.z);
         }
         else
         {
-
+            //Idle
+            timer = 0;
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, defaultPosY, Time.deltaTime * walkingBobbingSpeed), transform.localPosition.z);
         }
-
-    }
-
-    void Repeat()
-    {
-        swayPos -= swayPos * 2;
     }
 
     void Camera()

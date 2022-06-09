@@ -9,6 +9,9 @@ public class FPSController : MonoBehaviour
 
     public int playerHealth;
 
+    public float moveX;
+    public float moveZ;
+
     public float speed;
     public float walkingSpeed;
     public float runningSpeed;
@@ -37,17 +40,13 @@ public class FPSController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         PlayerInput();
         Run();
         SpeedControl();
         RayGround();
+        Health();
     }
 
     void FixedUpdate()
@@ -83,8 +82,8 @@ public class FPSController : MonoBehaviour
 
     void Movement()
     {
-        float moveZ = Input.GetAxisRaw("Vertical");
-        float moveX = Input.GetAxisRaw("Horizontal");
+        moveZ = Input.GetAxisRaw("Vertical");
+        moveX = Input.GetAxisRaw("Horizontal");
 
         Vector3 moveDir = new Vector3(moveX, 0, moveZ);
         moveDir = orientation.TransformDirection(moveDir);

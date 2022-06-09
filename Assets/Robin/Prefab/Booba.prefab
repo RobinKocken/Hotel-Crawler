@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2566255481078260826}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -130.05074, y: 2.24, z: 58.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -58,10 +58,16 @@ MonoBehaviour:
   inSphereRange: 0
   seePlayer: 0
   disPlayer: 0
-  boobaJumpForce: 10
-  boobaJumpForwardForce: 0
-  damage: 0
-  waitForSec: 0
+  boobaJumpForce: 8
+  boobaJumpForwardForce: 5
+  boobaBackForce: 7
+  damage: 2
+  waitForSec: 2
+  layerGround:
+    serializedVersion: 2
+    m_Bits: 128
+  rayDistanceGround: 0.05
+  grounded: 0
 --- !u!114 &6082524603028479669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +91,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.35
-  m_Speed: 6.5
+  m_Speed: 5
   m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 240

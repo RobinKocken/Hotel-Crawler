@@ -28,11 +28,18 @@ public class BoobaAI : MonoBehaviour
 
     public float boobaJumpForce;
     public float boobaJumpForwardForce;
+    public float boobaBackForce;
 
     public int damage;
 
     float startTime;
     public float waitForSec;
+
+    public LayerMask layerGround;
+    RaycastHit hitGround;
+    public float rayDistanceGround;
+
+    public bool grounded;
 
     void Awake()
     {
@@ -50,6 +57,7 @@ public class BoobaAI : MonoBehaviour
         FieldOfView();
         FollowPlayer();
         AttackPlayer();
+        BoobaRaycast();
     }
 
     void FollowPlayer()
@@ -74,8 +82,10 @@ public class BoobaAI : MonoBehaviour
             canAttack = false;
         }
 
-        if(hasAttacked && !isAttacking)
+        if(hasAttacked)
         {
+            rb.AddForce(-transform.forward * boobaBackForce, ForceMode.Force);
+
             if(hasAttacked && Time.time - startTime > waitForSec)
             {
                 hasAttacked = false;
@@ -87,7 +97,6 @@ public class BoobaAI : MonoBehaviour
         {
             if(disPlayer > 2  && !isAttacking)
             {
-                print("DisPlay > 2");
                 navBooba.SetDestination(playerPos);
                 navBooba.stoppingDistance = 2;
                 Vector3 lookrotation = navBooba.steeringTarget - transform.position;
@@ -96,7 +105,6 @@ public class BoobaAI : MonoBehaviour
 
             if(disPlayer < 2 && !hasAttacked)
             {
-                print("DisPlay < 2, Attack");
                 isAttacking = true;
 
                 navBooba.enabled = false;
@@ -157,15 +165,21 @@ public class BoobaAI : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void BoobaRaycast()
     {
-        if(collision.transform.tag == "Player" && isAttacking)
+        if(Physics.Raycast(transform.position, -transform.up * rayDistanceGround, out hitGround, layerGround))
         {
-            fpsController.playerHealth -= damage;
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
         }
 
-        if(collision.transform.tag == "Ground" && isAttacking)
+        if(grounded && !hasAttacked)
         {
+            print("Collision");
+
             isAttacking = false;
 
             navBooba.enabled = true;
@@ -174,9 +188,20 @@ public class BoobaAI : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Player" && isAttacking)
+        {
+            fpsController.playerHealth -= damage;
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, sphereRange);
+
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, sphereRange);
+        Debug.DrawRay(transform.position, -transform.up * rayDistanceGround);
     }
 }

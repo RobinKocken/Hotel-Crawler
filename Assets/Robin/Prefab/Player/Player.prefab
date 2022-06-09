@@ -130,11 +130,14 @@ MonoBehaviour:
   orientation: {fileID: 1849446311}
   rb: {fileID: 0}
   playerHealth: 100
-  speed: 3
+  moveX: 0
+  moveZ: 0
+  speed: 4
   walkingSpeed: 10
   runningSpeed: 20
   maxSpeed: 10
   airMulti: 0.4
+  moving: 0
   running: 0
   grounded: 0
   drag: 10
