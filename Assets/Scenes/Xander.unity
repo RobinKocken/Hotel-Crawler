@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -343,6 +343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6866996684901025260, guid: ff671aa1037db3f4b994c8c2965e1a22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6866996684901025270, guid: ff671aa1037db3f4b994c8c2965e1a22,
         type: 3}
       propertyPath: m_RootOrder
@@ -400,6 +405,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff671aa1037db3f4b994c8c2965e1a22, type: 3}
+--- !u!1 &960052661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6866996684901025260, guid: ff671aa1037db3f4b994c8c2965e1a22,
+    type: 3}
+  m_PrefabInstance: {fileID: 377276725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &960052671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960052661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e51b1222a0ab8c49936f95a45283971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadKey: 114
 --- !u!1001 &972030883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,6 +431,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1288469671, guid: 76e25713444f7df4e8703ca14b78c939, type: 3}
+      propertyPath: AmmoDisplay
+      value: 
+      objectReference: {fileID: 1846405299}
     - target: {fileID: 1288469671, guid: 76e25713444f7df4e8703ca14b78c939, type: 3}
       propertyPath: CurAmmoDisplay
       value: 
