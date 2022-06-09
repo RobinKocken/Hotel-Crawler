@@ -110,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: da6bef9facd36bc4faf4b79167df2901, type: 2}
   muzzle: {fileID: 1104908870}
+  CurAmmoDisplay: {fileID: 0}
+  InvAmmoDisplay: {fileID: 0}
 --- !u!1 &1919469587993937238
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,11 +160,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ce1075ee6ae9447acae9f3adc7eea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fps: {fileID: 0}
   orientation: {fileID: 0}
   mouseSens: 250
-  swayTime: 0
-  swayPos: 0
-  fast: 0
+  swayTime: 2
+  swayPos: 0.1
+  fast: 0.1
+  walkingBobbingSpeed: 14
+  bobbingAmount: 0.05
 --- !u!20 &1919469587993937226
 Camera:
   m_ObjectHideFlags: 0

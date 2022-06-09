@@ -40,16 +40,6 @@ public class FPSCamera : MonoBehaviour
 
         //transform.position = lerp;
 
-
-        if(fps.moving == true)
-        {
-           
-        }
-        else
-        {
-
-        }
-
     }
 
     void Repeat()

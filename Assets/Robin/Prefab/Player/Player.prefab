@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 6866996684901025259}
   - component: {fileID: 6866996684901025258}
   - component: {fileID: 6866996684901025261}
+  - component: {fileID: 960052671}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -94,7 +95,7 @@ Transform:
   m_GameObject: {fileID: 6866996684901025260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 79708509485192747}
@@ -135,6 +136,7 @@ MonoBehaviour:
   runningSpeed: 20
   maxSpeed: 10
   airMulti: 0.4
+  moving: 0
   running: 0
   grounded: 0
   drag: 10
@@ -144,8 +146,8 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 128
-  rayDistanceGround: 0.52
-  sphereRadius: 0.5
+  rayDistanceGround: 0.76
+  sphereRadius: 0.25
 --- !u!114 &6226832843742343454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 200f561bab2380d46ae01411a6c1ea15, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -239,3 +241,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &960052671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866996684901025260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e51b1222a0ab8c49936f95a45283971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadKey: 114

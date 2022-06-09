@@ -8684,21 +8684,6 @@ PrefabInstance:
       objectReference: {fileID: 1235468033}
     - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
         type: 3}
-      propertyPath: fast
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
-        type: 3}
-      propertyPath: swayPos
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
-        type: 3}
-      propertyPath: swayTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919469587993937225, guid: 76e25713444f7df4e8703ca14b78c939,
-        type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1849446311}
@@ -8759,24 +8744,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1919469587996105293, guid: 76e25713444f7df4e8703ca14b78c939,
         type: 3}
-      propertyPath: fast
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919469587996105293, guid: 76e25713444f7df4e8703ca14b78c939,
-        type: 3}
       propertyPath: camPos
       value: 
       objectReference: {fileID: 1148594337}
-    - target: {fileID: 1919469587996105293, guid: 76e25713444f7df4e8703ca14b78c939,
-        type: 3}
-      propertyPath: swayPos
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1919469587996105293, guid: 76e25713444f7df4e8703ca14b78c939,
-        type: 3}
-      propertyPath: swayTime
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1919469587996105294, guid: 76e25713444f7df4e8703ca14b78c939,
         type: 3}
       propertyPath: m_Name
