@@ -5,11 +5,22 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - GreenCube
+  - BlueCube
+  - FreeHolders
+  - DraggableObject
+  - RedCube
+  - CamP3
+  - CamP2
+  - CheckPoints
+  - Lines
+  - WinP1
+  - Mirror
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Mirror
   - Water
   - UI
   - Player
@@ -17,7 +28,7 @@ TagManager:
   - Wall
   - Unwalkable
   - No Light
-  - 
+  - Dragging
   - 
   - 
   - 
