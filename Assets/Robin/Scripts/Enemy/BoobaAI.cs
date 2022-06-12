@@ -31,6 +31,7 @@ public class BoobaAI : MonoBehaviour
     public float boobaJumpForce;
     public float boobaJumpForwardForce;
     public float boobaBackForce;
+    public float drag;
 
     public int damage;
 
@@ -87,6 +88,7 @@ public class BoobaAI : MonoBehaviour
 
         if(canJump)
         {
+            rb.drag = drag;
             rb.AddForce(-transform.forward * boobaBackForce, ForceMode.Force);
 
             if(Time.time - startTime > waitForSec)
@@ -94,6 +96,9 @@ public class BoobaAI : MonoBehaviour
                 isAttacking = false;
                 hasAttacked = false;
                 canJump = false;
+
+                rb.drag = 0;
+                navBooba.enabled = true;
             }
         }
 
@@ -179,13 +184,6 @@ public class BoobaAI : MonoBehaviour
         else
         {
             grounded = false;
-        }
-
-        if(grounded && !isAttacking)
-        {
-            isAttacking = false;
-
-            navBooba.enabled = true;
         }
 
         if(hasAttacked && grounded)
