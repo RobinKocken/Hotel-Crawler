@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c35aa8e9cccd60f4ba05ca84557750cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlight: {fileID: 169538432}
   orientation: {fileID: 6573996613565913685}
   rb: {fileID: 0}
-  playerHealth: 100
+  playerHealth: 96
   moveX: 0
   moveZ: 0
   speed: 3
@@ -332,6 +333,12 @@ PrefabInstance:
       objectReference: {fileID: 322005228444733467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e25713444f7df4e8703ca14b78c939, type: 3}
+--- !u!108 &169538432 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 6573996612190367489, guid: 76e25713444f7df4e8703ca14b78c939,
+    type: 3}
+  m_PrefabInstance: {fileID: 6573996612088011905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4726761443193308877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1919469587996105292, guid: 76e25713444f7df4e8703ca14b78c939,

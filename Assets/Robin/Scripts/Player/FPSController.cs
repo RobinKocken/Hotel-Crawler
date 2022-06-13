@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
+    public Light flashlight;
+
     public Transform orientation;
     public Rigidbody rb;
 
@@ -77,6 +79,11 @@ public class FPSController : MonoBehaviour
         if(Input.GetButtonDown("Jump") && grounded)
         {
             readyJump = true;
+        }
+
+        if(Input.GetButtonDown("Flash"))
+        {
+            flashlight.enabled = !flashlight.enabled;
         }
     }
 

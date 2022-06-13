@@ -7,18 +7,16 @@ public class BoobaAI : MonoBehaviour
 {
     NavMeshAgent navBooba;
     Rigidbody rb;
-    Transform player;
-    FPSController fpsController;
+
+    //Help because is not updating the pos;
+    public Transform player;
+    public FPSController fpsController;
 
     public float boobaRotSpeed;
 
-    public float sphereRange;
-    public LayerMask layerPlayer;
     RaycastHit hit;
 
     public Vector3 playerPos;
-    bool inSphereRange;
-    bool playerActive;
     bool seePlayer;
 
     public float disPlayer;
@@ -65,7 +63,7 @@ public class BoobaAI : MonoBehaviour
 
     void FollowPlayer()
     {
-        if(!seePlayer && !isAttacking && playerActive|| disPlayer > 6 && !isAttacking && playerActive)
+        if(!seePlayer && !isAttacking || disPlayer > 6 && !isAttacking)
         {
             navBooba.SetDestination(playerPos);
             navBooba.stoppingDistance = 5;
@@ -77,7 +75,7 @@ public class BoobaAI : MonoBehaviour
 
     void AttackPlayer()
     {
-        if(seePlayer && disPlayer < 6 && !isAttacking && playerActive)
+        if(seePlayer && disPlayer < 6 && !isAttacking)
         {
             canAttack = true;
         }
@@ -130,47 +128,34 @@ public class BoobaAI : MonoBehaviour
 
     }
 
+    public Vector3 iets;
     void FieldOfView()
     {
-        if(!inSphereRange)
+        //iets = fpsController.transform.position;
+        //player = fpsController.transform;
+        iets = player.position;
+
+        playerPos = new Vector3(player.position.x, transform.position.y, player.position.z);
+        disPlayer = Vector3.Distance(transform.position, playerPos);
+
+        Vector3 dirToPlayer = (player.position - transform.position).normalized;
+
+        Debug.DrawRay(transform.position + transform.forward * 0.3f, dirToPlayer * disPlayer, Color.red);
+        if(Physics.Raycast(transform.position + transform.forward * 0.3f, dirToPlayer, out hit, disPlayer))
         {
-            Collider[] range = Physics.OverlapSphere(transform.position, sphereRange, layerPlayer);
-
-            if(range.Length != 0)
+            if(hit.transform.tag == "Player")
             {
-                inSphereRange = true;
-
-                fpsController = range[0].GetComponent<FPSController>();
-                player = range[0].transform;
-                playerActive = true;
+                seePlayer = true;
+            }
+            else
+            {
+                seePlayer = false;
             }
         }
 
-        if(inSphereRange)
+        if(seePlayer)
         {
-            playerPos = new Vector3(player.position.x, transform.position.y, player.position.z);
-            disPlayer = Vector3.Distance(transform.position, playerPos);
-
-            Vector3 dirToPlayer = (player.position - transform.position).normalized;
-            float disToPlayer = Vector3.Distance(transform.position, player.position);
-
-            Debug.DrawRay(transform.position + transform.forward * 0.3f, dirToPlayer * disToPlayer, Color.red);
-            if(Physics.Raycast(transform.position + transform.forward * 0.3f, dirToPlayer, out hit, disToPlayer))
-            {
-                if(hit.transform.tag == "Player")
-                {
-                    seePlayer = true;
-                }
-                else
-                {
-                    seePlayer = false;
-                }
-            }
-
-            if(seePlayer)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerPos - transform.position), boobaRotSpeed * Time.deltaTime);
-            }
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerPos - transform.position), boobaRotSpeed * Time.deltaTime);
         }
     }
 
@@ -205,11 +190,5 @@ public class BoobaAI : MonoBehaviour
             print("hitground");
             hasAttacked = true;
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, sphereRange);
     }
 }

@@ -50,11 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d783318497e79041bd8c5db432f95a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 322005228444733470, guid: e3562300b94569546ab13c64d1ddeac8, type: 3}
+  fpsController: {fileID: 322005228444733467, guid: e3562300b94569546ab13c64d1ddeac8,
+    type: 3}
   boobaRotSpeed: 20
-  sphereRange: 4
-  layerPlayer:
-    serializedVersion: 2
-    m_Bits: 64
   playerPos: {x: 0, y: 0, z: 0}
   disPlayer: 0
   isAttacking: 0
@@ -70,6 +69,7 @@ MonoBehaviour:
     m_Bits: 128
   groundDistance: 0.04
   grounded: 0
+  iets: {x: 0, y: 0, z: 0}
 --- !u!114 &6082524603028479669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.3
-  m_BaseOffset: -0.081
+  m_BaseOffset: -0.035
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!33 &2267880148360425797
