@@ -68,7 +68,7 @@ MonoBehaviour:
   layerGround:
     serializedVersion: 2
     m_Bits: 128
-  groundDistance: 0.004
+  groundDistance: 0.04
   grounded: 0
 --- !u!114 &6082524603028479669
 MonoBehaviour:
