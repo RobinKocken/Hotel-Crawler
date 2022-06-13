@@ -8,6 +8,7 @@ public class BoobaSpawner : MonoBehaviour
     public class Wave
     {
         public int numberEnemies;
+        public float spawnInterval;
     }
 
     public GameObject booba;
@@ -21,7 +22,6 @@ public class BoobaSpawner : MonoBehaviour
     int currentSpawned;
 
     float startTime;
-    public float spawnInterval;
 
     bool canSpawn;
     bool nextWaveReady;
@@ -51,7 +51,7 @@ public class BoobaSpawner : MonoBehaviour
     void SpawnWave()
     {
 
-        if(canSpawn && Time.time - startTime > spawnInterval)
+        if(canSpawn && Time.time - startTime > waves[currentWave].spawnInterval)
         {
             if(currentSpawned < waves[currentWave].numberEnemies)
             {
