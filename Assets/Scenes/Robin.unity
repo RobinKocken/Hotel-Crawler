@@ -821,16 +821,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4726761443195345352, guid: e3562300b94569546ab13c64d1ddeac8,
-        type: 3}
-      propertyPath: rayDistance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726761443195345352, guid: e3562300b94569546ab13c64d1ddeac8,
-        type: 3}
-      propertyPath: doorLayer.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3562300b94569546ab13c64d1ddeac8, type: 3}
 --- !u!1001 &1082294578

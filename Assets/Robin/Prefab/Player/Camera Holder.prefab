@@ -179,6 +179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fps: {fileID: 0}
   orientation: {fileID: 0}
+  rayDistance: 2
+  doorLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   mouseSens: 250
   walkingBobbingSpeed: 14
   bobbingAmount: 0.05
