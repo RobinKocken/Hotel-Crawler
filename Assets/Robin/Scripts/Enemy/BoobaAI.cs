@@ -50,7 +50,7 @@ public class BoobaAI : MonoBehaviour
 
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()

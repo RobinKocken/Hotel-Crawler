@@ -7,6 +7,10 @@ public class FPSCamera : MonoBehaviour
     public FPSController fps;
     public Transform orientation;
 
+    public float rayDistance;
+    public LayerMask doorLayer;
+    RaycastHit hit;
+
     float xRotation;
     float yRotation;
     public float mouseSens;
@@ -26,6 +30,21 @@ public class FPSCamera : MonoBehaviour
     {
         Camera();
         CameraBob();
+        DoorInteract();
+    }
+
+    void DoorInteract()
+    {
+        Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
+        if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, doorLayer))
+        {
+            if(Input.GetButtonDown("E"))
+            {
+                hit.transform.GetComponent<DoorScript>().DoorActivate();
+            }
+            
+        }
+
     }
 
     void CameraBob()
