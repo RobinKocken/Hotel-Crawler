@@ -1120,28 +1120,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!1 &1210544088 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8825080117681320123, guid: ceac5928e1723604c9b73adabaf3866e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1616898985}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &1210544095
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210544088}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.113000005, y: 1.1650001, z: 0.514}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: -0.034, y: 1.1650001, z: -0.514}
-  m_TimeToStationary: 0.5
 --- !u!1 &1214699794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,16 +1518,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6161644633461825854, guid: ceac5928e1723604c9b73adabaf3866e,
-        type: 3}
-      propertyPath: speed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161644633461825854, guid: ceac5928e1723604c9b73adabaf3866e,
-        type: 3}
-      propertyPath: angleOpen
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 8156910837445011969, guid: ceac5928e1723604c9b73adabaf3866e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1609,21 +1577,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8825080117681320123, guid: ceac5928e1723604c9b73adabaf3866e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8825080117681320123, guid: ceac5928e1723604c9b73adabaf3866e,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8825080117681320123, guid: ceac5928e1723604c9b73adabaf3866e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceac5928e1723604c9b73adabaf3866e, type: 3}

@@ -6,14 +6,14 @@ public class DoorScript : MonoBehaviour
 {
     public float angleOpen;
     public float speed;
-    public bool open;
+    bool open;
 
-    public Quaternion norRot;
-    public Quaternion toRot;
+    Quaternion norRot;
+    Quaternion toRot;
 
     void Start()
     {
-        norRot = Quaternion.Euler(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z);
+        norRot = transform.localRotation;
     }
 
     void Update()
