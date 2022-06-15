@@ -14,6 +14,9 @@ public class Gun : MonoBehaviour
     public GameObject CurAmmoDisplay;
     public GameObject InvAmmoDisplay;
 
+    [Header("temp fix")]
+    public GameObject recoilscript;
+
 
     float timeSinceLastShot;
     string _curAmmoDisplay;
