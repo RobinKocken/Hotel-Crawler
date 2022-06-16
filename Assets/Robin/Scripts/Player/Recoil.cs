@@ -46,8 +46,6 @@ public class Recoil : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire1"))
 		{
-			GameObject newPar = Instantiate(muzzleFlash, particleHold.transform.position, Quaternion.identity);
-			Destroy(newPar, playParticle);
 			Fire();
 		}
 	}

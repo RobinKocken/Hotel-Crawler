@@ -331,6 +331,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 322005228444733467}
+    - target: {fileID: 5417574376254989046, guid: 76e25713444f7df4e8703ca14b78c939,
+        type: 3}
+      propertyPath: particleHold
+      value: 
+      objectReference: {fileID: 6573996613192847044}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e25713444f7df4e8703ca14b78c939, type: 3}
 --- !u!108 &169538432 stripped
@@ -342,6 +347,12 @@ Light:
 --- !u!4 &4726761443193308877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1919469587996105292, guid: 76e25713444f7df4e8703ca14b78c939,
+    type: 3}
+  m_PrefabInstance: {fileID: 6573996612088011905}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6573996613192847044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1104908869, guid: 76e25713444f7df4e8703ca14b78c939,
     type: 3}
   m_PrefabInstance: {fileID: 6573996612088011905}
   m_PrefabAsset: {fileID: 0}

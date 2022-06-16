@@ -14,8 +14,11 @@ public class Gun : MonoBehaviour
     public GameObject CurAmmoDisplay;
     public GameObject InvAmmoDisplay;
 
-    [Header("temp fix")]
-    public GameObject recoilscript;
+    [Header("Particle")]
+    public GameObject muzzlePos;
+    public GameObject partHold;
+    public float playParticle;
+
 
 
     float timeSinceLastShot;
@@ -86,6 +89,7 @@ public class Gun : MonoBehaviour
     }
     private void OnGunShot()
     {
-        
+        GameObject newPar = Instantiate(muzzlePos, partHold.transform.position, Quaternion.identity);
+        Destroy(newPar, playParticle);
     }
 }
