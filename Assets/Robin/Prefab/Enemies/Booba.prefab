@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2942815864621235936
 Transform:
   m_ObjectHideFlags: 0
@@ -51,8 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  fpsController: {fileID: 322005228444733467, guid: e3562300b94569546ab13c64d1ddeac8,
-    type: 3}
+  fpsController: {fileID: 0}
   boobaRotSpeed: 20
   playerPos: {x: 0, y: 0, z: 0}
   disPlayer: 0
