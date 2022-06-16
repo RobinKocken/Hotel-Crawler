@@ -8,6 +8,7 @@ public class UIManagerScript : MonoBehaviour
     public FPSController fps;
 
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI shieldText;
 
     void Start()
     {
@@ -18,5 +19,6 @@ public class UIManagerScript : MonoBehaviour
     void Update()
     {
         healthText.text = fps.playerHealth.ToString();
+        shieldText.text = fps.playerShield.ToString();
     }
 }

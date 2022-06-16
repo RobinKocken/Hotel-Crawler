@@ -10,6 +10,7 @@ public class FPSController : MonoBehaviour
     public Rigidbody rb;
 
     public int playerHealth;
+    public int playerShield;
 
     public float moveX;
     public float moveZ;
@@ -33,7 +34,6 @@ public class FPSController : MonoBehaviour
 
     public LayerMask ground;
     RaycastHit hitGround;
-    GameObject groundObject;
     public float rayDistanceGround;
     public float sphereRadius;
 
