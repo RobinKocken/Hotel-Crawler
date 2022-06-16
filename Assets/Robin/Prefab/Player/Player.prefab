@@ -100,7 +100,7 @@ MonoBehaviour:
   flashlight: {fileID: 169538432}
   orientation: {fileID: 6573996613565913685}
   rb: {fileID: 0}
-  playerHealth: 96
+  playerHealth: 78
   moveX: 0
   moveZ: 0
   speed: 3
