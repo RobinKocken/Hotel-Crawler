@@ -50,6 +50,7 @@ public class BoobaAI : MonoBehaviour
 
     void Start()
     {
+        fpsController = GameObject.FindGameObjectWithTag("Player").GetComponent<FPSController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

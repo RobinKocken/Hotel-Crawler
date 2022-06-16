@@ -61,6 +61,7 @@ public class FPSController : MonoBehaviour
     {
         if(playerHealth <= 0)
         {
+            playerHealth = 0;
             print("Dead");
         }
     }
