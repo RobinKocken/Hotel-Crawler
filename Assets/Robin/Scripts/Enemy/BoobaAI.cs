@@ -8,7 +8,6 @@ public class BoobaAI : MonoBehaviour
     NavMeshAgent navBooba;
     Rigidbody rb;
 
-    //Help because is not updating the pos;
     public Transform player;
     public FPSController fpsController;
 
