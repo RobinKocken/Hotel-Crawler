@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManagerScript : MonoBehaviour
 {
     public FPSController fps;
 
-    public TextMeshProUGUI healthText;
-    public TextMeshProUGUI shieldText;
+    public Slider slider;
 
     void Start()
     {
-        
+        slider.maxValue = fps.playerHealth;
+        slider.value = fps.playerHealth;
     }
 
 
     void Update()
     {
-        healthText.text = fps.playerHealth.ToString();
-        shieldText.text = fps.playerShield.ToString();
+        slider.value = fps.playerHealth;
     }
 }

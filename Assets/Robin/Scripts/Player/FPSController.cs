@@ -10,6 +10,8 @@ public class FPSController : MonoBehaviour
     public Rigidbody rb;
 
     public int playerHealth;
+    int maxHealth;
+
     public int playerShield;
 
     public float moveX;
@@ -42,6 +44,11 @@ public class FPSController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    void Start()
+    {
+        maxHealth = playerHealth;
+    }
+
     void Update()
     {
         PlayerInput();
@@ -59,6 +66,11 @@ public class FPSController : MonoBehaviour
 
     void Health()
     {
+        if(playerHealth > maxHealth)
+        {
+            playerHealth = maxHealth;
+        }
+
         if(playerHealth <= 0)
         {
             playerHealth = 0;
