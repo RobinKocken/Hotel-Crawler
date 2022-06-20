@@ -4,8 +4,11 @@ ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: -1060730247071170715
-    second: Nitish.001|Nitish.001Action
+      74: 1644117311535616793
+    second: Armature.007|Armature.007Action.001
+  - first:
+      74: 2656822714577643880
+    second: Armature.007|Nitish.001Action
   externalObjects: {}
   materials:
     materialImportMode: 2
