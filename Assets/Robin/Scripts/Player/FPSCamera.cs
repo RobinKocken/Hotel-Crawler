@@ -38,9 +38,13 @@ public class FPSCamera : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
         if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, doorLayer))
         {
-            if(Input.GetButtonDown("E"))
+            if(Input.GetButtonDown("E") && hit.transform.tag != "Scene")
             {
                 hit.transform.GetComponent<DoorScript>().DoorActivate();
+            }
+            else if(Input.GetButtonDown("E") && hit.transform.tag == "Scene")
+            {
+                hit.transform.GetComponent<SceneScript>().LoadLevelOne();
             }
             
         }

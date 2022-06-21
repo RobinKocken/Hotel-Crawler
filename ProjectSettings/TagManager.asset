@@ -16,6 +16,7 @@ TagManager:
   - Lines
   - WinP1
   - Mirror
+  - Scene
   layers:
   - Default
   - TransparentFX
