@@ -9,6 +9,8 @@ public class Conversation : MonoBehaviour
     public TextMeshProUGUI text;
     public GameObject yes;
     public GameObject no;
+    public bool conversationstart;
+    public GameObject canvas;
     public int number;
     public bool first;
 
@@ -16,16 +18,19 @@ public class Conversation : MonoBehaviour
     void Start()
     {
         text.text = questions[0];
+        canvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("<3 rinse");
         text.text = questions[number];
         if (number == 2 || number == 3 || number == 5 || number == 6)
         {
-            yes.SetActive(false);
-            no.SetActive(false);
+            canvas.SetActive(false);
+            //yes.SetActive(false);
+            //no.SetActive(false);
         }
     }
 

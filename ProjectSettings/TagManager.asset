@@ -17,6 +17,7 @@ TagManager:
   - WinP1
   - Mirror
   - Scene
+  - Vaas
   layers:
   - Default
   - TransparentFX
