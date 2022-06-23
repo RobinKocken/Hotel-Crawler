@@ -29,7 +29,7 @@ public class FPSCamera : MonoBehaviour
     void Update()
     {
         Camera();
-        CameraBob();
+        //CameraBob();
         DoorInteract();
     }
 
@@ -51,19 +51,19 @@ public class FPSCamera : MonoBehaviour
 
     }
 
-    void CameraBob()
-    {
-        if(Mathf.Abs(fps.moveX) > 0.1f || Mathf.Abs(fps.moveZ) > 0.1f)
-        {
-            timer += Time.deltaTime * walkingBobbingSpeed;
-            transform.localPosition = new Vector3(transform.localPosition.x, defaultPosY + Mathf.Sin(timer) * bobbingAmount, transform.localPosition.z);
-        }
-        else
-        {
-            timer = 0;
-            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, defaultPosY, Time.deltaTime * walkingBobbingSpeed), transform.localPosition.z);
-        }
-    }
+    //void CameraBob()
+    //{
+    //    if(Mathf.Abs(fps.moveX) > 0.1f || Mathf.Abs(fps.moveZ) > 0.1f)
+    //    {
+    //        timer += Time.deltaTime * walkingBobbingSpeed;
+    //        transform.localPosition = new Vector3(transform.localPosition.x, defaultPosY + Mathf.Sin(timer) * bobbingAmount, transform.localPosition.z);
+    //    }
+    //    else
+    //    {
+    //        timer = 0;
+    //        transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, defaultPosY, Time.deltaTime * walkingBobbingSpeed), transform.localPosition.z);
+    //    }
+    //}
 
     void Camera()
     {

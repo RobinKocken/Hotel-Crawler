@@ -65,10 +65,12 @@ public class Gun : MonoBehaviour
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
     public void Shoot()
     {
+        print("Shooting!!!");
         if(gunData.currentAmmo > 0)
         {
             if(CanShoot())
             {
+                print("Shot!!!");
                 if(Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
                     print("target hit: " + hitInfo.transform.name);
@@ -79,6 +81,7 @@ public class Gun : MonoBehaviour
                 _curAmmoDisplay = gunData.currentAmmo.ToString();
                 timeSinceLastShot = 0;
                 OnGunShot();
+                print("removed bullet and shot particle");
             }
         }
     }
@@ -86,6 +89,7 @@ public class Gun : MonoBehaviour
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
+        
     }
     private void OnGunShot()
     {

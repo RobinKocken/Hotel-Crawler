@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3412675265387811136}
   - component: {fileID: 2267880148360425797}
   - component: {fileID: 4079654002445125007}
-  - component: {fileID: 3412675265387811142}
   - component: {fileID: 3412675265387811196}
+  - component: {fileID: 3814504951775766405}
   m_Layer: 0
   m_Name: Booba
   m_TagString: Untagged
@@ -154,20 +154,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3412675265387811142
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2566255481078260826}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: a61e4c7b35d6a5f428712990ad47e7fb, type: 3}
 --- !u!54 &3412675265387811196
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,3 +170,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!135 &3814504951775766405
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2566255481078260826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.24558672
+  m_Center: {x: 0, y: 0.20907176, z: 0.0033725202}

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Target : MonoBehaviour, IDamageable
 { 
-    public float health = 5;
+    public float health;
 
-     public void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
-        Destroy(gameObject);
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
