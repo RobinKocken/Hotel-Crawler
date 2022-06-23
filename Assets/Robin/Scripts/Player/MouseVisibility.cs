@@ -16,21 +16,21 @@ public class MouseVisibility : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, vaas.transform.position);
-        if (distance <= 3 && Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("huh?");
-            canvas.SetActive(true);
-        }
+        //float distance = Vector3.Distance(transform.position, vaas.transform.position);
+        //if (distance <= 3 && Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Debug.Log("huh?");
+        //    canvas.SetActive(true);
+        //}
 
-        if (canvas.activeSelf)
-        {
-            mouseInvisible = false;
-        }
-        else
-        {
-            mouseInvisible = true;
-        }
+        //if (canvas.activeSelf)
+        //{
+        //    mouseInvisible = false;
+        //}
+        //else
+        //{
+        //    mouseInvisible = true;
+        //}
 
         if(mouseInvisible)
         {
