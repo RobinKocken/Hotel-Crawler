@@ -14,8 +14,6 @@ public class Reflections : MonoBehaviour
 	private Ray ray;
 	private RaycastHit hit;
 
-	public GameObject key;
-	public Transform spawner;
 	public bool yeet;
 
 	private void Awake()
