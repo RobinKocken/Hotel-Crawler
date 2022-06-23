@@ -22,19 +22,23 @@ public class Gun : MonoBehaviour
 
 
     float timeSinceLastShot;
-    string _curAmmoDisplay;
-    string _invAmmoDisplay;
+    TextMeshProUGUI _curAmmoDisplay;
+    TextMeshProUGUI _invAmmoDisplay;
 
     public void Awake()
     {
         gunData.reloading = false;
-        _curAmmoDisplay = CurAmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.currentAmmo.ToString();
-        _invAmmoDisplay = CurAmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = gunData.AmmoInInventory.ToString();
+        _curAmmoDisplay = CurAmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>();
+        _invAmmoDisplay = InvAmmoDisplay.GetComponent<TMPro.TextMeshProUGUI>();
     }
     public void Start()
     {
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += StartReload;
+
+        _curAmmoDisplay.text = gunData.currentAmmo.ToString();
+        _invAmmoDisplay.text = gunData.AmmoInInventory.ToString();
+
     }
 
     public void StartReload()
@@ -55,8 +59,8 @@ public class Gun : MonoBehaviour
         gunData.currentAmmo = gunData.magSize;
         gunData.AmmoInInventory -= gunData.magSize;
         //updating ammo on UI
-        _curAmmoDisplay = gunData.currentAmmo.ToString();
-        _invAmmoDisplay = gunData.AmmoInInventory.ToString();
+        _curAmmoDisplay.text = gunData.currentAmmo.ToString();
+        _invAmmoDisplay.text = gunData.AmmoInInventory.ToString();
 
 
         gunData.reloading = false;
@@ -78,7 +82,7 @@ public class Gun : MonoBehaviour
                     damageable?.TakeDamage(gunData.damage);
                 }
                 gunData.currentAmmo--;
-                _curAmmoDisplay = gunData.currentAmmo.ToString();
+                _curAmmoDisplay.text = gunData.currentAmmo.ToString();
                 timeSinceLastShot = 0;
                 OnGunShot();
                 print("removed bullet and shot particle");
