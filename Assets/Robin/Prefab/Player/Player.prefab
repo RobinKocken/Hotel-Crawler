@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4697205674865288186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -102.6, y: 1, z: 97.35}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4697205675439299720}
@@ -49,7 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073a1a79e64ec334bb47521570d2ab7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseInvisible: 0
+  mouseInvisible: 1
+  canvas: {fileID: 0}
+  vaas: {fileID: 0}
 --- !u!114 &4697205674865288160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +98,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 200f561bab2380d46ae01411a6c1ea15, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
