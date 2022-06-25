@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class Gun : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class Gun : MonoBehaviour
     public GameObject muzzlePos;
     public GameObject partHold;
     public float playParticle;
+
+    [Header("Shotgun Data")]
+    public int PelletShot; // Total Pellets shot per Shot of the gun
+    public float maxSpread;
 
 
 
@@ -43,7 +48,7 @@ public class Gun : MonoBehaviour
 
     public void StartReload()
     {
-        if(!gunData.reloading)
+        if(!gunData.reloading && gunData.AmmoInInventory > 0)
         {
             StartCoroutine(Reload());
         }
@@ -69,23 +74,43 @@ public class Gun : MonoBehaviour
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
     public void Shoot()
     {
-        print("Shooting!!!");
+        //print("Shooting!!!");
         if(gunData.currentAmmo > 0)
         {
             if(CanShoot())
             {
-                print("Shot!!!");
-                if(Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
+                //print("Shot!!!");
+                if (gameObject.name == "Shotgun")
                 {
-                    print("target hit: " + hitInfo.transform.name);
-                    IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
-                    damageable?.TakeDamage(gunData.damage);
+                    for (int i = 0; i < PelletShot; i++)
+                    {
+                        Vector3 dir = muzzle.position + new Vector3(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
+                        if (Physics.Raycast(muzzle.position, dir , out RaycastHit hitInfo, gunData.maxDistance))
+                        {
+                            //print("target hit: " + hitInfo.transform.name);
+                            IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
+                            damageable?.TakeDamage(gunData.damage);
+                            Debug.DrawRay(muzzle.position, hitInfo.transform.position);
+                        }
+                        print(i);
+
+                    }
+                    
+                }
+                if(gameObject.name != "Shotgun")
+                {
+                    if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
+                    {
+                        //print("target hit: " + hitInfo.transform.name);
+                        IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
+                        damageable?.TakeDamage(gunData.damage);
+                    }
                 }
                 gunData.currentAmmo--;
                 _curAmmoDisplay.text = gunData.currentAmmo.ToString();
                 timeSinceLastShot = 0;
                 OnGunShot();
-                print("removed bullet and shot particle");
+                //print("removed bullet and shot particle");
             }
         }
     }
