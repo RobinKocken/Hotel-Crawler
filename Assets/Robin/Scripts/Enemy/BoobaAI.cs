@@ -128,13 +128,8 @@ public class BoobaAI : MonoBehaviour
 
     }
 
-    public Vector3 iets;
     void FieldOfView()
     {
-        //iets = fpsController.transform.position;
-        //player = fpsController.transform;
-        iets = player.position;
-
         playerPos = new Vector3(player.position.x, transform.position.y, player.position.z);
         disPlayer = Vector3.Distance(transform.position, playerPos);
 
