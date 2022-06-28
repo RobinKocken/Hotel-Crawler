@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     public float playParticle;
 
     [Header("Shotgun Data")]
-    public int PelletShot; // Total Pellets shot per Shot of the gun
+    public int pelletShot; // Total Pellets shot per Shot of the gun
     public float maxSpread;
 
 
@@ -82,22 +82,21 @@ public class Gun : MonoBehaviour
                 //print("Shot!!!");
                 if (gameObject.name == "Shotgun")
                 {
-                    for (int i = 0; i < PelletShot; i++)
+                    for (int i = 0; i < pelletShot; i++)
                     {
-                        Vector3 dir = muzzle.position + new Vector3(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
+                        Vector3 dir = muzzle.forward + new Vector3(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
+                        Debug.DrawRay(muzzle.position, dir * 1000,Color.blue,5);
                         if (Physics.Raycast(muzzle.position, dir , out RaycastHit hitInfo, gunData.maxDistance))
                         {
                             //print("target hit: " + hitInfo.transform.name);
                             IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                             damageable?.TakeDamage(gunData.damage);
-                            Debug.DrawRay(muzzle.position, hitInfo.transform.position);
                         }
-                        print(i);
-
+                        //print(i);
                     }
                     
                 }
-                if(gameObject.name != "Shotgun")
+                else
                 {
                     if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
                     {
