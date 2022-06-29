@@ -41,6 +41,8 @@ public class BoobaAI : MonoBehaviour
 
     public bool grounded;
 
+    public ParticleSystem splash;
+    public ParticleSystem gore;
     void Awake()
     {
         navBooba = GetComponent<NavMeshAgent>();
@@ -185,5 +187,14 @@ public class BoobaAI : MonoBehaviour
             print("hitground");
             hasAttacked = true;
         }
+    }
+
+    private void OnDestroy()
+    {
+        var particle = Instantiate(splash, transform.position, Quaternion.identity);
+        particle.Play();
+        Destroy(particle.gameObject, 1f);
+
+        
     }
 }

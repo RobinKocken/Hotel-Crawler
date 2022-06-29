@@ -24,7 +24,7 @@ public class Conversation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("<3 rinse");
+        Debug.Log("bing");
         text.text = questions[number];
         if (number == 2 || number == 3 || number == 5 || number == 6)
         {

@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour
     public GameObject InvAmmoDisplay;
 
     [Header("Particle")]
-    public GameObject muzzlePos;
+    public GameObject muzzlePos, flashPos, lightPos;
     public GameObject partHold;
     public float playParticle;
 
@@ -121,7 +121,19 @@ public class Gun : MonoBehaviour
     }
     private void OnGunShot()
     {
-        GameObject newPar = Instantiate(muzzlePos, partHold.transform.position, Quaternion.identity);
+        GameObject newPar = Instantiate(muzzlePos, partHold.transform.position, partHold.transform.rotation);
+        GameObject newFlash = Instantiate(flashPos, partHold.transform.position, partHold.transform.rotation);
+        GameObject newLight = Instantiate(lightPos, partHold.transform.position, partHold.transform.rotation);
+
+        StartCoroutine(Destroy(newPar, newFlash, newLight));
+    }
+
+    IEnumerator Destroy(GameObject newPar, GameObject newFlash, GameObject newLight)
+    {
+        yield return new WaitForSeconds(2);
+
         Destroy(newPar, playParticle);
+        Destroy(newFlash, playParticle);
+        Destroy(newLight, playParticle);
     }
 }
