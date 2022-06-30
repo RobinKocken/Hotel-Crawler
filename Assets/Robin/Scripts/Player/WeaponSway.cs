@@ -6,7 +6,7 @@ public class WeaponSway : MonoBehaviour
 {
     [Header("Sway Settings")]
     public float smooth;
-    public float multiplier;
+    public float multiplier;    
 
     private void Update()
     {

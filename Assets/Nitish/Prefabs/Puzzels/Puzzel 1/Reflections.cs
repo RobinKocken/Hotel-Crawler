@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Reflections : MonoBehaviour
 {
+	public GameObject doorToOpen;
 
 	public int reflections;
 	public float maxLength;
@@ -42,18 +43,15 @@ public class Reflections : MonoBehaviour
 
 				if (hit.collider.tag == "WinP1")
 				{
-					//yeet = true;
-					//if (yeet == true)
-					//{
-					//	Vector3 pos = spawner.position;
-					//	Instantiate(key, pos, Quaternion.identity);
-					//}
-
-					print("You won!");
+					doorToOpen.layer = 12;
+				}
+				else
+				{
+					doorToOpen.layer = 0;
 				}
 
 				if (hit.collider.tag != "Mirror")
-					break;
+					break;				
 			}
 			else
 			{
