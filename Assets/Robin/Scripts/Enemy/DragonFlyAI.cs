@@ -15,6 +15,8 @@ public class DragonFlyAI : MonoBehaviour
 
     public float rotSpeed;
 
+    public ParticleSystem gore;
+        
     public int damage;
     public float maxRadius;
     public float frequency;
@@ -60,7 +62,7 @@ public class DragonFlyAI : MonoBehaviour
         if(seePlayerDirect && !attack || seePlayerDirect && disPlayer < 19 && !attack)
         {
             navDragon.SetDestination(player.position);
-            navDragon.speed = 5;
+            navDragon.speed = 1;
             navDragon.stoppingDistance = 3;
 
             Vector3 lookrotation = navDragon.steeringTarget - transform.position;
@@ -77,7 +79,7 @@ public class DragonFlyAI : MonoBehaviour
         if(attack)
         {
             navDragon.SetDestination(player.position);
-            navDragon.speed = 15;
+            navDragon.speed = 3;
             navDragon.stoppingDistance = 1;
 
             Vector3 lookrotation = navDragon.steeringTarget - transform.position;
@@ -116,4 +118,13 @@ public class DragonFlyAI : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    private void OnDestroy()
+    {
+        var particle = Instantiate(gore, transform.position, Quaternion.identity);
+        particle.Play();
+        Destroy(particle.gameObject, 1f);
+
+
+    }
+
 }
