@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -124, y: 172.872}
-  m_SizeDelta: {x: 63.676, y: 103.302}
+  m_SizeDelta: {x: 162, y: 419}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3919306966015467858
 CanvasRenderer:
@@ -195,14 +195,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6886792, g: 0.048727296, b: 0.048727296, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 13dd5514fcd151b4b81401e33b5a8298, type: 3}
+  m_Texture: {fileID: 2800000, guid: f119fdc8967bc3b4cab68dcc04ea67f3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
