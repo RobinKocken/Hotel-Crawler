@@ -9,6 +9,7 @@ public class FPSController : MonoBehaviour
     public Transform orientation;
     public Rigidbody rb;
 
+    [Header("Health Values")]
     public int playerHealth;
     int maxHealth;
 
@@ -16,13 +17,15 @@ public class FPSController : MonoBehaviour
 
     public float moveX;
     public float moveZ;
-
+    
+    [Header("Player Speed Values")]
     public float speed;
     public float walkingSpeed;
     public float runningSpeed;
     public float maxSpeed;
     public float airMulti;
 
+    [Header("Player Bools")]
     public bool moving;
     public bool running;
 
@@ -30,6 +33,7 @@ public class FPSController : MonoBehaviour
 
     public float drag;
 
+    [Header("Player Jump Values")]
     public bool readyJump;
     public bool jumped;
     public float jumpForce;
@@ -63,7 +67,21 @@ public class FPSController : MonoBehaviour
         Movement();
         Jump();
     }
+    
+    //Begin Inventory Script
+    [Header("Inventory")]
+    public InventoryObject inventory;
 
+    public void OnTriggerEnter(Collider other)
+    {
+        var item = other.GetComponent<Item>();
+        if(item)
+        {
+            inventory.AddItem(item.item, 1);
+            Destroy(other.gameObject);
+        }
+    }
+    //End Inventory Script
     void Health()
     {
         if(playerHealth > maxHealth)
