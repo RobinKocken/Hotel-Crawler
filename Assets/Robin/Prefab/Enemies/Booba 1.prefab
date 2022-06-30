@@ -68,7 +68,7 @@ MonoBehaviour:
     m_Bits: 128
   groundDistance: 0.04
   grounded: 0
-  splash: {fileID: 7655308447281243118, guid: fe69557cd533db04ca20d3e80b1a423c, type: 3}
+  splash: {fileID: 4205793059008425160, guid: c9aba20c02201d1469e8db520b3961df, type: 3}
   gore: {fileID: 0}
 --- !u!114 &6082524603028479669
 MonoBehaviour:
