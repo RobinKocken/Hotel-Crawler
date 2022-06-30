@@ -6,7 +6,10 @@ public class FPSCamera : MonoBehaviour
 {
     public FPSController fps;
     public Transform orientation;
-    [SerializeField] private KeyCode interactKey;
+    [SerializeField] public KeyCode interactKey;
+    [SerializeField] public KeyCode inventoryKey;
+    public GameObject overlayCanvas;
+    public WeaponSway weaponSway;
 
     public float mouseY;
     public float mouseX;
@@ -49,6 +52,12 @@ public class FPSCamera : MonoBehaviour
                 }
             }
 
+        }
+        if (Input.GetKeyDown(inventoryKey))
+        {
+            uiActive = !uiActive;
+            weaponSway.uiActive = uiActive;
+            overlayCanvas.SetActive(uiActive);
         }
     }
 

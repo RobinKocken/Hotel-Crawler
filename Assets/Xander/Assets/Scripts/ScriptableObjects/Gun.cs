@@ -20,8 +20,8 @@ public class Gun : MonoBehaviour
     public GameObject InvAmmoDisplay;
 
     [Header("Particle")]
-    public GameObject muzzlePos, flashPos, lightPos;
     public GameObject partHold;
+    public GameObject muzzlePos, flashPos, lightPos;
     public float playParticle;
 
     [Header("Shotgun Data")]
