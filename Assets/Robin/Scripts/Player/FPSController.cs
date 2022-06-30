@@ -8,6 +8,7 @@ public class FPSController : MonoBehaviour
 
     public Transform orientation;
     public Rigidbody rb;
+    
 
     [Header("Health Values")]
     public int playerHealth;
@@ -60,6 +61,7 @@ public class FPSController : MonoBehaviour
         SpeedControl();
         RayGround();
         Health();
+        
     }
 
     void FixedUpdate()
@@ -68,20 +70,7 @@ public class FPSController : MonoBehaviour
         Jump();
     }
     
-    //Begin Inventory Script
-    [Header("Inventory")]
-    public InventoryObject inventory;
-
-    public void OnTriggerEnter(Collider other)
-    {
-        var item = other.GetComponent<Item>();
-        if(item)
-        {
-            inventory.AddItem(item.item, 1);
-            Destroy(other.gameObject);
-        }
-    }
-    //End Inventory Script
+    
     void Health()
     {
         if(playerHealth > maxHealth)

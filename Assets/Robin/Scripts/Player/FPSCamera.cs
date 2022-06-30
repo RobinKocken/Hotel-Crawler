@@ -6,6 +6,7 @@ public class FPSCamera : MonoBehaviour
 {
     public FPSController fps;
     public Transform orientation;
+    [SerializeField] private KeyCode interactKey;
 
     public float rayDistance;
     public LayerMask doorLayer;
@@ -29,10 +30,38 @@ public class FPSCamera : MonoBehaviour
     void Update()
     {
         Camera();
-        //CameraBob();
+        CameraBob();
         DoorInteract();
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, 1000))
+        {
+            var item = hitInfo.collider.gameObject.GetComponent<Item>();
+            if (Input.GetKeyDown(interactKey))
+            {
+                if (item)
+                {
+                    inventory.AddItem(item.item, 1);
+                    Destroy(hitInfo.collider.gameObject);
+                }
+            }
+
+        }
     }
 
+    //Begin Inventory Script
+    [Header("Inventory")]
+    public InventoryObject inventory;
+
+    public void OnTriggerEnter(Collider other)
+    {
+        var item = other.GetComponent<Item>();
+        if (item)
+        {
+            inventory.AddItem(item.item, 1);
+            Destroy(other.gameObject);
+        }
+    }
+
+    //End Inventory Script
     void DoorInteract()
     {
         Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
@@ -51,19 +80,19 @@ public class FPSCamera : MonoBehaviour
 
     }
 
-    //void CameraBob()
-    //{
-    //    if(Mathf.Abs(fps.moveX) > 0.1f || Mathf.Abs(fps.moveZ) > 0.1f)
-    //    {
-    //        timer += Time.deltaTime * walkingBobbingSpeed;
-    //        transform.localPosition = new Vector3(transform.localPosition.x, defaultPosY + Mathf.Sin(timer) * bobbingAmount, transform.localPosition.z);
-    //    }
-    //    else
-    //    {
-    //        timer = 0;
-    //        transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, defaultPosY, Time.deltaTime * walkingBobbingSpeed), transform.localPosition.z);
-    //    }
-    //}
+    void CameraBob()
+    {
+        if (Mathf.Abs(fps.moveX) > 0.1f || Mathf.Abs(fps.moveZ) > 0.1f)
+        {
+            timer += Time.deltaTime * walkingBobbingSpeed;
+            transform.localPosition = new Vector3(transform.localPosition.x, defaultPosY + Mathf.Sin(timer) * bobbingAmount, transform.localPosition.z);
+        }
+        else
+        {
+            timer = 0;
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, defaultPosY, Time.deltaTime * walkingBobbingSpeed), transform.localPosition.z);
+        }
+    }
 
     void Camera()
     {
