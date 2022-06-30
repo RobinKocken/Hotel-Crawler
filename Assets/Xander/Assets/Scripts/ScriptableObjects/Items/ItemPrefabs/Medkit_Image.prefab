@@ -45,12 +45,12 @@ PrefabInstance:
     - target: {fileID: 4656940297502094011, guid: 92c09696254e69f44935f92329bf6120,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 63.676
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 4656940297502094011, guid: 92c09696254e69f44935f92329bf6120,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 103.302
+      value: 501
       objectReference: {fileID: 0}
     - target: {fileID: 4656940297502094011, guid: 92c09696254e69f44935f92329bf6120,
         type: 3}
@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 8422549179433597056, guid: 92c09696254e69f44935f92329bf6120,
         type: 3}
       propertyPath: m_Name
-      value: Item Variant
+      value: Medkit_Image
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c09696254e69f44935f92329bf6120, type: 3}
