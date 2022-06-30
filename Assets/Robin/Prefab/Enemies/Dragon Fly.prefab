@@ -305,11 +305,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60644c1867df61b46aa0366549c50afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {fileID: 0}
-  colExp: {fileID: 0}
+  colExp: {fileID: 2683728677636391834}
   player: {fileID: 0}
   fps: {fileID: 0}
   rotSpeed: 20
+  damage: 10
+  maxRadius: 2
+  frequency: 0.2
+  expand: 0.3
   seePlayerDirect: 0
 --- !u!114 &1644404261795137135
 MonoBehaviour:
@@ -323,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0b93a57cdb3754d982d960c42e33b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 10
 --- !u!195 &3069805587417724905
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -342,8 +345,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.3
-  m_BaseOffset: 0.15
+  m_Height: 1.27
+  m_BaseOffset: 1.07
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!95 &5743145520588568824
@@ -356,7 +359,7 @@ Animator:
   m_GameObject: {fileID: 1290330780747967008}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7fa6160b469bec947bbccab33b416e1c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -391,7 +394,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.00001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1890600276543959080
 Rigidbody:

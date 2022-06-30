@@ -4950,6 +4950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846ffa726f5816746bcf78b9a8b37418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   gunData: {fileID: 11400000, guid: da6bef9facd36bc4faf4b79167df2901, type: 2}
   muzzle: {fileID: 5853179462280667534}
   CurAmmoDisplay: {fileID: 0}
@@ -5291,6 +5292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5853179462280667534}
   - component: {fileID: 5853179462280667522}
+  - component: {fileID: 9181298877390239688}
   - component: {fileID: 5853179462280667523}
   - component: {fileID: 5853179462280667520}
   - component: {fileID: 5853179462280667521}
@@ -5333,6 +5335,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fps: {fileID: 0}
   orientation: {fileID: 0}
+  interactKey: 0
+  mouseY: 0
+  mouseX: 0
+  uiActive: 0
   rayDistance: 2
   doorLayer:
     serializedVersion: 2
@@ -5340,6 +5346,20 @@ MonoBehaviour:
   mouseSens: 250
   walkingBobbingSpeed: 14
   bobbingAmount: 0.05
+  inventory: {fileID: 0}
+--- !u!114 &9181298877390239688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5853179462280667535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073a1a79e64ec334bb47521570d2ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!20 &5853179462280667523
 Camera:
   m_ObjectHideFlags: 0

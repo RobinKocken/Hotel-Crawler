@@ -4,43 +4,36 @@ using UnityEngine;
 
 public class MouseVisibility : MonoBehaviour
 {
-    public bool mouseInvisible;
+    public FPSCamera cam;
 
-    public GameObject canvas;
-    public GameObject vaas;
+    void Awake()
+    {
+        cam = GetComponent<FPSCamera>();
+    }
 
     void Start()
     {
-        mouseInvisible = true;
+        cam.uiActive = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    void Update()
+    public void MouseMode(bool mouseSwitch)
     {
-        //float distance = Vector3.Distance(transform.position, vaas.transform.position);
-        //if (distance <= 3 && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Debug.Log("huh?");
-        //    canvas.SetActive(true);
-        //}
-
-        //if (canvas.activeSelf)
-        //{
-        //    mouseInvisible = false;
-        //}
-        //else
-        //{
-        //    mouseInvisible = true;
-        //}
-
-        if(mouseInvisible)
+        if(mouseSwitch)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            cam.uiActive = false;
         }
-        else if(!mouseInvisible)
+        else if(!mouseSwitch)
         {
             Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true; ;
+            Cursor.visible = true;
+
+            cam.uiActive = true;
         }
     }
 }

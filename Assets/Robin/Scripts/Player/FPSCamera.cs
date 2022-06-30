@@ -8,6 +8,11 @@ public class FPSCamera : MonoBehaviour
     public Transform orientation;
     [SerializeField] private KeyCode interactKey;
 
+    public float mouseY;
+    public float mouseX;
+
+    public bool uiActive;
+
     public float rayDistance;
     public LayerMask doorLayer;
     RaycastHit hit;
@@ -96,15 +101,18 @@ public class FPSCamera : MonoBehaviour
 
     void Camera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        if(!uiActive)
+        {
+            mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
+            mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
-        xRotation += -mouseY;
-        yRotation += mouseX;
+            xRotation += -mouseY;
+            yRotation += mouseX;
 
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+        }
     }
 }
