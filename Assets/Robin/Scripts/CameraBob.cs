@@ -34,7 +34,7 @@ public class CameraBob : MonoBehaviour
         Quaternion qX = Quaternion.Euler(new Vector3(0 + Mathf.Sin(timer) * bobbingAmountX, 0, 0));
         Quaternion qZ = Quaternion.Euler(new Vector3(0, 0 , 0 + Mathf.Sin(timer) * bobbingAmountY));
 
-        transform.rotation = qY;
+        this.transform.rotation = Quaternion.Euler(0, 180, 0);
         transform.rotation = qX;
         transform.rotation = qZ;
     }
