@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155b3f82272ecd849aea2e056c6e1398, type: 3}
   m_Name: Medkit
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 3826564140332694397, guid: a300774295f7ab2419fd4de45106ba02, type: 3}
   type: 2
   description: A medkit gives a big health boost
   restoreHealthValue: 50
