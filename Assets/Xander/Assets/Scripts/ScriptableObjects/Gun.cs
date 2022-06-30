@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     [Header("Ammo_UI")]
     public GameObject CurAmmoDisplay;
     public GameObject InvAmmoDisplay;
+    public GameObject reloadUI;
 
     [Header("Particle")]
     public GameObject partHold;
@@ -27,7 +28,6 @@ public class Gun : MonoBehaviour
     [Header("Shotgun Data")]
     public int pelletShot; // Total Pellets shot per Shot of the gun
     public float maxSpread;
-
 
 
     float timeSinceLastShot;
@@ -71,6 +71,10 @@ public class Gun : MonoBehaviour
         _curAmmoDisplay.text = gunData.currentAmmo.ToString();
         _invAmmoDisplay.text = gunData.AmmoInInventory.ToString();
 
+        if(gunData.currentAmmo == gunData.magSize)
+        {
+            reloadUI.SetActive(false);
+        } 
 
         gunData.reloading = false;
     }
@@ -110,6 +114,11 @@ public class Gun : MonoBehaviour
                     }
                 }
                 gunData.currentAmmo--;
+
+                if(gunData.currentAmmo <= gunData.magSize / 4)
+                {
+                    reloadUI.SetActive(true);
+                }
                 _curAmmoDisplay.text = gunData.currentAmmo.ToString();
                 timeSinceLastShot = 0;
                 OnGunShot();

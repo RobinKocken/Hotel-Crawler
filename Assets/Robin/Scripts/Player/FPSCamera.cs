@@ -30,6 +30,8 @@ public class FPSCamera : MonoBehaviour
     float defaultPosY;
     float timer;
 
+    public GameObject eToInteract;
+
     void Start()
     {
         defaultPosY = transform.localPosition.y;
@@ -39,26 +41,7 @@ public class FPSCamera : MonoBehaviour
     {
         Camera();
         CameraBob();
-        DoorInteract();
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, 1000))
-        {
-            var item = hitInfo.collider.gameObject.GetComponent<Item>();
-            if (Input.GetKeyDown(interactKey))
-            {
-                if (item)
-                {
-                    inventory.AddItem(item.item, 1);
-                    Destroy(hitInfo.collider.gameObject);
-                }
-            }
-
-        }
-        if (Input.GetKeyDown(inventoryKey))
-        {
-            uiActive = !uiActive;
-            weaponSway.uiActive = uiActive;
-            overlayCanvas.SetActive(uiActive);
-        }
+        Interact();
     }
 
     //Begin Inventory Script
@@ -76,12 +59,17 @@ public class FPSCamera : MonoBehaviour
     }
 
     //End Inventory Script
-    void DoorInteract()
+    void Interact()
     {
         Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
-        if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, doorLayer))
+        if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance))
         {
-            if(Input.GetKeyDown(interactKey) && hit.transform.tag != "Scene")
+            if(hit.transform.tag == "Interactable" || hit.transform.tag == "Door")
+            {
+                eToInteract.SetActive(true);
+            }
+
+            if(Input.GetKeyDown(interactKey) && hit.transform.tag == "Door")
             {
                 hit.transform.GetComponent<DoorScript>().DoorActivate();
             }
@@ -89,9 +77,28 @@ public class FPSCamera : MonoBehaviour
             {
                 hit.transform.GetComponent<SceneScript>().LoadLevelOne();
             }
-            
+
+            var item = hit.collider.gameObject.GetComponent<Item>();
+            if(Input.GetKeyDown(interactKey))
+            {
+                if(item)
+                {
+                    inventory.AddItem(item.item, 1);
+                    Destroy(hit.collider.gameObject);
+                }
+            }
+        }
+        else
+        {
+            eToInteract.SetActive(false);
         }
 
+        if(Input.GetKeyDown(inventoryKey))
+        {
+            uiActive = !uiActive;
+            weaponSway.uiActive = uiActive;
+            overlayCanvas.SetActive(uiActive);
+        }
     }
 
     void CameraBob()

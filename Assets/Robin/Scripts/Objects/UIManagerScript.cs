@@ -10,8 +10,6 @@ public class UIManagerScript : MonoBehaviour
 
     public Slider slider;
 
-    int number = 3;
-
     void Start()
     {
         slider.maxValue = fps.playerHealth;

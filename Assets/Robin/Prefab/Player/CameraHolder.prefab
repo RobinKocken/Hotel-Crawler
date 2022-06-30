@@ -5070,6 +5070,7 @@ MonoBehaviour:
   muzzle: {fileID: 5853179462280667534}
   CurAmmoDisplay: {fileID: 0}
   InvAmmoDisplay: {fileID: 0}
+  reloadUI: {fileID: 0}
   partHold: {fileID: 73976213971994091}
   muzzlePos: {fileID: 2130959979}
   playParticle: 2
@@ -5462,6 +5463,7 @@ MonoBehaviour:
   mouseSens: 250
   walkingBobbingSpeed: 14
   bobbingAmount: 0.05
+  eToInteract: {fileID: 0}
   inventory: {fileID: 11400000, guid: 6015f930b57485348ac570dcb0f1b220, type: 2}
 --- !u!114 &9181298877390239688
 MonoBehaviour:

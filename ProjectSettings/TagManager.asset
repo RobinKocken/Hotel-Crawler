@@ -18,6 +18,8 @@ TagManager:
   - Mirror
   - Scene
   - Vaas
+  - Interactable
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -178,13 +178,11 @@ public class BoobaAI : MonoBehaviour
     {
         if(collision.transform.tag == "Player" && isAttacking && !hasAttacked)
         {
-            print("Player Health -2");
             fpsController.playerHealth -= damage;
             hasAttacked = true;
         }
         else if(collision.transform.tag == "Ground" && isAttacking && !hasAttacked)
         {
-            print("hitground");
             hasAttacked = true;
         }
     }

@@ -38,7 +38,6 @@ public class BoobaSpawner : MonoBehaviour
     {
         if(currentWave > numberWaves)
         {
-            print("No next wave");
             canSpawn = false;
         }
 
@@ -85,8 +84,6 @@ public class BoobaSpawner : MonoBehaviour
     {
         if(canSpawn && nextWaveReady)
         {
-            print("Next Wave");
-
             nextWaveReady = false;
 
             currentSpawned = 0;
@@ -98,8 +95,6 @@ public class BoobaSpawner : MonoBehaviour
     {
         if(other.transform.tag == "Player")
         {
-            print("You shall not Pass");
-
             canSpawn = true;
         }
     }
