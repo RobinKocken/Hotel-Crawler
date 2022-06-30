@@ -8,9 +8,13 @@ using Random = UnityEngine.Random;
 
 public class Gun : MonoBehaviour
 {
+    [Header("Player Inventory")]
+    public InventoryObject inventory;
+
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] Transform muzzle;
+
     [Header("Ammo_UI")]
     public GameObject CurAmmoDisplay;
     public GameObject InvAmmoDisplay;
