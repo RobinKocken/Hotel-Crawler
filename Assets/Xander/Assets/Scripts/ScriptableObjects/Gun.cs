@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
 
     [Header("Particle")]
     public GameObject partHold;
-    public GameObject muzzlePos, flashPos, lightPos;
+    public GameObject muzzlePos;
     public float playParticle;
 
     [Header("Shotgun Data")]
@@ -126,18 +126,14 @@ public class Gun : MonoBehaviour
     private void OnGunShot()
     {
         GameObject newPar = Instantiate(muzzlePos, partHold.transform.position, partHold.transform.rotation);
-        GameObject newFlash = Instantiate(flashPos, partHold.transform.position, partHold.transform.rotation);
-        GameObject newLight = Instantiate(lightPos, partHold.transform.position, partHold.transform.rotation);
 
-        StartCoroutine(Destroy(newPar, newFlash, newLight));
+        StartCoroutine(Destroy(newPar));
     }
 
-    IEnumerator Destroy(GameObject newPar, GameObject newFlash, GameObject newLight)
+    IEnumerator Destroy(GameObject newPar)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         Destroy(newPar, playParticle);
-        Destroy(newFlash, playParticle);
-        Destroy(newLight, playParticle);
     }
 }

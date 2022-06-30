@@ -1,5 +1,120 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &26424027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26424028}
+  - component: {fileID: 26424030}
+  - component: {fileID: 26424029}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &26424028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26424027}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.015944779, y: -0.043, z: 0.909}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3386659652209614739}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!108 &26424030
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26424027}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.9843137, b: 0.9372549, a: 1}
+  m_Intensity: 10
+  m_Range: 4.86
+  m_SpotAngle: 67.30363
+  m_InnerSpotAngle: 25.371923
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 1
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 0
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 2.1397276
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!114 &26424029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26424027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 1
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &36122458
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,14 +140,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36122458}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.332, y: -0.329, z: 1.498}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: -0.011944771, y: 0.009499997, z: 1.305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1863966759}
-  m_Father: {fileID: 2130959980}
-  m_RootOrder: 1
+  m_Father: {fileID: 3518316464005636564}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!198 &36122461
 ParticleSystem:
@@ -4950,17 +5065,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846ffa726f5816746bcf78b9a8b37418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 6015f930b57485348ac570dcb0f1b220, type: 2}
   gunData: {fileID: 11400000, guid: da6bef9facd36bc4faf4b79167df2901, type: 2}
   muzzle: {fileID: 5853179462280667534}
   CurAmmoDisplay: {fileID: 0}
   InvAmmoDisplay: {fileID: 0}
-  muzzlePos: {fileID: 2130959979}
-  flashPos: {fileID: 0}
-  lightPos: {fileID: 0}
   partHold: {fileID: 73976213971994091}
+  muzzlePos: {fileID: 2130959979}
   playParticle: 2
-  pelletShot: 10
+  pelletShot: 15
   maxSpread: 0.3
 --- !u!114 &1849151303
 MonoBehaviour:
@@ -4976,6 +5089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smooth: 8
   multiplier: 3
+  uiActive: 0
 --- !u!114 &1849151304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5136,7 +5250,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3518316464005636564}
-  - {fileID: 36122459}
   m_Father: {fileID: 1187871957}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5335,7 +5448,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fps: {fileID: 0}
   orientation: {fileID: 0}
-  interactKey: 0
+  interactKey: 101
+  inventoryKey: 105
+  overlayCanvas: {fileID: 0}
+  weaponSway: {fileID: 1849151303}
   mouseY: 0
   mouseX: 0
   uiActive: 0
@@ -5346,7 +5462,7 @@ MonoBehaviour:
   mouseSens: 250
   walkingBobbingSpeed: 14
   bobbingAmount: 0.05
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 6015f930b57485348ac570dcb0f1b220, type: 2}
 --- !u!114 &9181298877390239688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5359,7 +5475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073a1a79e64ec334bb47521570d2ab7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 5853179462280667522}
 --- !u!20 &5853179462280667523
 Camera:
   m_ObjectHideFlags: 0
