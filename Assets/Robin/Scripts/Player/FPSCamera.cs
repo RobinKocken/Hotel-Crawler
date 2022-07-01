@@ -7,6 +7,8 @@ public class FPSCamera : MonoBehaviour
     public FPSController fps;
     public Transform orientation;
     public MouseVisibility mouseVis;
+    public UIManagerScript uiMan;
+
     [SerializeField] public KeyCode interactKey;
     [SerializeField] public KeyCode inventoryKey;
     [Header("Inventory")]
@@ -14,6 +16,7 @@ public class FPSCamera : MonoBehaviour
     public ItemObject ammoType;
 
     public GameObject overlayCanvas;
+    public GameObject menu;
     public GameObject inven;
     public GameObject user;
     public WeaponSway weaponSway;
@@ -109,8 +112,11 @@ public class FPSCamera : MonoBehaviour
             weaponSway.uiActive = uiActive;
 
             overlayCanvas.SetActive(uiActive);
+            menu.SetActive(false);
             inven.SetActive(uiActive);
             user.SetActive(!uiActive);
+
+            uiMan.ChangeInv();
 
             mouseVis.MouseMode(!uiActive);
         }

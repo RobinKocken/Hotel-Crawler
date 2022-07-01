@@ -91,4 +91,10 @@ public class UIManagerScript : MonoBehaviour
     {
         overlay.SetActive(b);
     }
+
+    public void ChangeInv()
+    {
+        inv.GetComponent<Image>().color = Color.white;
+        men.GetComponent<Image>().color = Color.grey;
+    }
 }
