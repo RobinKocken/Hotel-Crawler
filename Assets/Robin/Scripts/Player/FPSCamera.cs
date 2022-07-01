@@ -6,9 +6,12 @@ public class FPSCamera : MonoBehaviour
 {
     public FPSController fps;
     public Transform orientation;
+    public MouseVisibility mouseVis;
     [SerializeField] public KeyCode interactKey;
     [SerializeField] public KeyCode inventoryKey;
     public GameObject overlayCanvas;
+    public GameObject inven;
+    public GameObject user;
     public WeaponSway weaponSway;
 
     public float mouseY;
@@ -31,6 +34,11 @@ public class FPSCamera : MonoBehaviour
     float timer;
 
     public GameObject eToInteract;
+
+    void Awake()
+    {
+        mouseVis = GetComponent<MouseVisibility>();
+    }
 
     void Start()
     {
@@ -97,7 +105,12 @@ public class FPSCamera : MonoBehaviour
         {
             uiActive = !uiActive;
             weaponSway.uiActive = uiActive;
+
             overlayCanvas.SetActive(uiActive);
+            inven.SetActive(uiActive);
+            user.SetActive(!uiActive);
+
+            mouseVis.MouseMode(!uiActive);
         }
     }
 

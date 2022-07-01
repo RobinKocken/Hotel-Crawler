@@ -5449,9 +5449,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fps: {fileID: 0}
   orientation: {fileID: 0}
+  mouseVis: {fileID: 0}
   interactKey: 101
   inventoryKey: 105
   overlayCanvas: {fileID: 0}
+  inven: {fileID: 0}
+  user: {fileID: 0}
   weaponSway: {fileID: 1849151303}
   mouseY: 0
   mouseX: 0
