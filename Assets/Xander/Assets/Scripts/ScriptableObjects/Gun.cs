@@ -75,8 +75,9 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(gunData.reloadTime);
 
         //removing bullets
+        inventory.RemoveItem(ammoType, gunData.magSize - gunData.currentAmmo);
         gunData.currentAmmo = gunData.magSize;
-        inventory.RemoveItem(ammoType, gunData.magSize);
+        
         //updating ammo on UI
         _curAmmoDisplay.text = gunData.currentAmmo.ToString();
         _invAmmoDisplay.text = inventory.GetAmount(ammoType).ToString();
@@ -140,6 +141,11 @@ public class Gun : MonoBehaviour
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
+
+        if(_invAmmoDisplay.text != inventory.GetAmount(ammoType).ToString())
+        {
+            _invAmmoDisplay.text = inventory.GetAmount(ammoType).ToString();
+        }
 
 
     }

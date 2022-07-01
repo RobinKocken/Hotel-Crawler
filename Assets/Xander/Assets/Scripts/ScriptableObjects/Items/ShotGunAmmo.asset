@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 4419921565134716244, guid: e3cde7b8e4796d64981a7dee9d3ce7e4, type: 3}
   type: 0
   description: this is ammo for a shotgun. not for any type of other gun.
-  Ammount: 20
+  itemValue: 20

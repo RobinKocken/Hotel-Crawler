@@ -9,6 +9,10 @@ public class FPSCamera : MonoBehaviour
     public MouseVisibility mouseVis;
     [SerializeField] public KeyCode interactKey;
     [SerializeField] public KeyCode inventoryKey;
+    [Header("Inventory")]
+    public InventoryObject inventory;
+    public ItemObject ammoType;
+
     public GameObject overlayCanvas;
     public GameObject inven;
     public GameObject user;
@@ -52,21 +56,8 @@ public class FPSCamera : MonoBehaviour
         Interact();
     }
 
-    //Begin Inventory Script
-    [Header("Inventory")]
-    public InventoryObject inventory;
+  
 
-    public void OnTriggerEnter(Collider other)
-    {
-        var item = other.GetComponent<Item>();
-        if (item)
-        {
-            inventory.AddItem(item.item, 1);
-            Destroy(other.gameObject);
-        }
-    }
-
-    //End Inventory Script
     void Interact()
     {
         Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
@@ -92,6 +83,12 @@ public class FPSCamera : MonoBehaviour
                 if(item)
                 {
                     inventory.AddItem(item.item, 1);
+                    if (item.item == ammoType)
+                    {
+                        inventory.AddItem(item.item, ammoType.itemValue);
+                        inventory.GetAmount(ammoType).ToString();
+
+                    }
                     Destroy(hit.collider.gameObject);
                 }
             }

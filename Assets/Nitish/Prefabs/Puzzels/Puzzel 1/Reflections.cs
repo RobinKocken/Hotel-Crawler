@@ -47,7 +47,7 @@ public class Reflections : MonoBehaviour
 				}
 				else
 				{
-					doorToOpen.tag = "Default";
+					doorToOpen.tag = "Untagged";
 				}
 
 				if (hit.collider.tag != "Mirror")

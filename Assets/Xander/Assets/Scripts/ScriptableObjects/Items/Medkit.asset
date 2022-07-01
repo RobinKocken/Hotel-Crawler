@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 3826564140332694397, guid: a300774295f7ab2419fd4de45106ba02, type: 3}
   type: 2
   description: A medkit gives a big health boost
-  restoreHealthValue: 30
+  itemValue: 30
