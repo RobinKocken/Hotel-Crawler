@@ -23,6 +23,35 @@ public class InventoryObject : ScriptableObject
             Container.Add(new InventorySlot(_item, _amount));
         }
     }
+
+    public void RemoveItem(ItemObject item, int _amount)
+    {
+        
+        foreach (var itemSlot in Container)
+        {
+            if (itemSlot.item == item && itemSlot.amount > 0)
+            {
+                itemSlot.amount -= _amount;
+                if(itemSlot.amount < 0)
+                {
+                    itemSlot.amount = 0;
+                }
+            }  
+        }
+    }
+    public int GetAmount(ItemObject item)
+    {
+        int amount = 0;
+        foreach (var itemSlot in Container)
+        {
+            if (itemSlot.item == item)
+            {
+                amount += itemSlot.amount;
+            }
+                
+        }
+        return amount;
+    }
 }
 
 [System.Serializable]

@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
 {
     [Header("Player Inventory")]
     public InventoryObject inventory;
+    public ItemObject ammoType;
 
     [Header("References")]
     [SerializeField] GunData gunData;
@@ -46,13 +47,22 @@ public class Gun : MonoBehaviour
         PlayerShoot.reloadInput += StartReload;
 
         _curAmmoDisplay.text = gunData.currentAmmo.ToString();
-        _invAmmoDisplay.text = gunData.AmmoInInventory.ToString();
+        _invAmmoDisplay.text = inventory.GetAmount(ammoType).ToString();
+
+        //code to always start with 360 in your inv
+        int ammoReset = inventory.GetAmount(ammoType);
+        inventory.RemoveItem(ammoType, ammoReset);
+        inventory.AddItem(ammoType, 360);
+
+        _curAmmoDisplay.text = gunData.currentAmmo.ToString();
+        _invAmmoDisplay.text = inventory.GetAmount(ammoType).ToString();
 
     }
 
+
     public void StartReload()
     {
-        if(!gunData.reloading && gunData.AmmoInInventory > 0)
+        if(!gunData.reloading && inventory.GetAmount(ammoType) > 0)
         {
             StartCoroutine(Reload());
         }
@@ -66,12 +76,12 @@ public class Gun : MonoBehaviour
 
         //removing bullets
         gunData.currentAmmo = gunData.magSize;
-        gunData.AmmoInInventory -= gunData.magSize;
+        inventory.RemoveItem(ammoType, gunData.magSize);
         //updating ammo on UI
         _curAmmoDisplay.text = gunData.currentAmmo.ToString();
-        _invAmmoDisplay.text = gunData.AmmoInInventory.ToString();
+        _invAmmoDisplay.text = inventory.GetAmount(ammoType).ToString();
 
-        if(gunData.currentAmmo == gunData.magSize)
+        if (gunData.currentAmmo == gunData.magSize)
         {
             reloadUI.SetActive(false);
         } 
@@ -130,7 +140,8 @@ public class Gun : MonoBehaviour
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
-        
+
+
     }
     private void OnGunShot()
     {

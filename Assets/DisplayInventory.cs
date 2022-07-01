@@ -6,6 +6,7 @@ using TMPro;
 public class DisplayInventory : MonoBehaviour
 {
     public InventoryObject inventory;
+    public GunData gunData;
     public int X_START;
     public int Y_START;
     public int X_SPACE_BETWEEN_ITEM;
