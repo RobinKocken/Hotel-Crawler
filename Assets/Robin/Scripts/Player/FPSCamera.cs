@@ -77,6 +77,11 @@ public class FPSCamera : MonoBehaviour
                 hit.transform.GetComponent<SceneScript>().LoadLevelOne();
             }
 
+            if(Input.GetKeyDown(interactKey) && hit.transform.GetComponent<SceneScript>())
+            {
+                hit.transform.GetComponent<SceneScript>().WinScreen();
+            }
+
             var item = hit.collider.gameObject.GetComponent<Item>();
             if(Input.GetKeyDown(interactKey))
             {

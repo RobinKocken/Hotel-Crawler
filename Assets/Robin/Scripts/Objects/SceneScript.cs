@@ -24,4 +24,9 @@ public class SceneScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void WinScreen()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
