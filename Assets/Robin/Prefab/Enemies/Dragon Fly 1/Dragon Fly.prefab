@@ -1258,7 +1258,7 @@ MonoBehaviour:
   fps: {fileID: 0}
   rotSpeed: 20
   gore: {fileID: 3623075010105253533, guid: e6aa4490f29aa774890c0ca825690b7e, type: 3}
-  damage: 10
+  damage: 40
   maxRadius: 2
   frequency: 0.2
   expand: 0.3
