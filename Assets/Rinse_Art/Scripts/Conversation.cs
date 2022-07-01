@@ -18,8 +18,6 @@ public class Conversation : MonoBehaviour
 
     void Start()
     {
-        mouse.MouseMode(false);
-
         text.text = questions[0];
     }
 
@@ -31,6 +29,10 @@ public class Conversation : MonoBehaviour
         {
             canvas.SetActive(false);
             mouse.MouseMode(true);
+        }
+        else
+        {
+            mouse.MouseMode(false);
         }
     }
 
