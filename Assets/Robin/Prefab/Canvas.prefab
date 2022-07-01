@@ -2326,6 +2326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 6015f930b57485348ac570dcb0f1b220, type: 2}
+  gunData: {fileID: 11400000, guid: da6bef9facd36bc4faf4b79167df2901, type: 2}
   X_START: -119
   Y_START: 175
   X_SPACE_BETWEEN_ITEM: 240
@@ -2638,9 +2639,7 @@ PrefabInstance:
     - target: {fileID: 2429860098691008147, guid: 47d761c5633d8dc429d3fc1d1db9da83,
         type: 3}
       propertyPath: m_text
-      value: 'Return
-
-'
+      value: Return
       objectReference: {fileID: 0}
     - target: {fileID: 2429860099086450792, guid: 47d761c5633d8dc429d3fc1d1db9da83,
         type: 3}
