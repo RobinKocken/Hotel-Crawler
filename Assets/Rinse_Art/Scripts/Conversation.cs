@@ -15,6 +15,7 @@ public class Conversation : MonoBehaviour
     public GameObject canvas;
     public int number;
     public bool first;
+    public bool last;
 
     void Start()
     {
@@ -27,8 +28,7 @@ public class Conversation : MonoBehaviour
         text.text = questions[number];
         if (number == 2 || number == 3 || number == 5 || number == 6)
         {
-            canvas.SetActive(false);
-            mouse.MouseMode(true);
+            last = true;
         }
         else
         {
@@ -38,6 +38,12 @@ public class Conversation : MonoBehaviour
 
     public void ButtenYes()
     {
+        if(last)
+        {
+            canvas.SetActive(false);
+            mouse.MouseMode(true);
+        }
+
         if (first == true)
         {
             number += 1;
@@ -52,6 +58,12 @@ public class Conversation : MonoBehaviour
 
     public void ButtenNo()
     {
+        if(last)
+        {
+            canvas.SetActive(false);
+            mouse.MouseMode(true);
+        }
+
         if (first == true)
         {
             number += 2;
