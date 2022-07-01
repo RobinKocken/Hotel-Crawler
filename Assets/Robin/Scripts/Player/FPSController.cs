@@ -8,8 +8,14 @@ public class FPSController : MonoBehaviour
 
     public Transform orientation;
     public Rigidbody rb;
+    public FPSCamera cam;
+    public MouseVisibility mouse;
     public GameObject deathScreen;
     public GameObject inter;
+
+    [SerializeField] public KeyCode healkey;
+    public InventoryObject inventory;
+    public ItemObject medkit;
 
     [Header("Health Values")]
     public int playerHealth;
@@ -82,8 +88,25 @@ public class FPSController : MonoBehaviour
         if(playerHealth <= 0)
         {
             playerHealth = 0;
+
+            mouse.MouseMode(false);
             deathScreen.SetActive(true);
             inter.SetActive(false);
+
+            cam.bobbingAmount = 0;
+            cam.walkingBobbingSpeed = 0;
+
+            cam.mouseSens = 0;
+            speed = 0;
+        }
+
+        if(Input.GetKeyDown(healkey))
+        {
+            if(inventory.GetAmount(medkit) > 0)
+            {
+                playerHealth += 30;
+                inventory.RemoveItem(medkit, 1);
+            }
         }
     }
 

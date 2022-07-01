@@ -52,8 +52,13 @@ MonoBehaviour:
   flashlight: {fileID: 0}
   orientation: {fileID: 4697205675367272296}
   rb: {fileID: 0}
+  cam: {fileID: 0}
+  mouse: {fileID: 0}
   deathScreen: {fileID: 0}
   inter: {fileID: 0}
+  healkey: 113
+  inventory: {fileID: 11400000, guid: 6015f930b57485348ac570dcb0f1b220, type: 2}
+  medkit: {fileID: 11400000, guid: 3f0f685298e311243897d2ec04047ac9, type: 2}
   playerHealth: 100
   playerShield: 0
   moveX: 0

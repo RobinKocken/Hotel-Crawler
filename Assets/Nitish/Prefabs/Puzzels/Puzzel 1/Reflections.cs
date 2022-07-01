@@ -43,11 +43,11 @@ public class Reflections : MonoBehaviour
 
 				if (hit.collider.tag == "WinP1")
 				{
-					doorToOpen.layer = 12;
+					doorToOpen.tag = "Door";
 				}
 				else
 				{
-					doorToOpen.layer = 0;
+					doorToOpen.tag = "Default";
 				}
 
 				if (hit.collider.tag != "Mirror")
