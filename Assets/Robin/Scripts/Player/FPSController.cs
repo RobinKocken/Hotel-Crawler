@@ -8,7 +8,8 @@ public class FPSController : MonoBehaviour
 
     public Transform orientation;
     public Rigidbody rb;
-    
+    public GameObject deathScreen;
+    public GameObject inter;
 
     [Header("Health Values")]
     public int playerHealth;
@@ -81,7 +82,8 @@ public class FPSController : MonoBehaviour
         if(playerHealth <= 0)
         {
             playerHealth = 0;
-            print("Dead");
+            deathScreen.SetActive(true);
+            inter.SetActive(false);
         }
     }
 

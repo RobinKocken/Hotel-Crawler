@@ -52,6 +52,8 @@ MonoBehaviour:
   flashlight: {fileID: 0}
   orientation: {fileID: 4697205675367272296}
   rb: {fileID: 0}
+  deathScreen: {fileID: 0}
+  inter: {fileID: 0}
   playerHealth: 100
   playerShield: 0
   moveX: 0
