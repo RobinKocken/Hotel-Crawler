@@ -63,7 +63,7 @@ public class FPSCamera : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
         if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance))
         {
-            if(hit.transform.tag == "Interactable" || hit.transform.tag == "Door")
+            if(hit.transform.tag == "Interactable" || hit.transform.tag == "Door" || hit.transform.tag == "Scene")
             {
                 eToInteract.SetActive(true);
             }
@@ -77,7 +77,7 @@ public class FPSCamera : MonoBehaviour
                 hit.transform.GetComponent<SceneScript>().LoadLevelOne();
             }
 
-            if(Input.GetKeyDown(interactKey) && hit.transform.GetComponent<SceneScript>())
+            if(Input.GetKeyDown(interactKey) && hit.transform.GetComponent<SceneScript>() && hit.transform.tag != "Scene")
             {
                 hit.transform.GetComponent<SceneScript>().WinScreen();
             }
