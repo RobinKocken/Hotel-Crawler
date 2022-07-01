@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
         //code to always start with 360 in your inv
         int ammoReset = inventory.GetAmount(ammoType);
         inventory.RemoveItem(ammoType, ammoReset);
-        inventory.AddItem(ammoType, 360);
+        inventory.AddItem(ammoType, 72);
 
         _curAmmoDisplay.text = gunData.currentAmmo.ToString();
         _invAmmoDisplay.text = inventory.GetAmount(ammoType).ToString();
