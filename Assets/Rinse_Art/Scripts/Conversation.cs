@@ -5,23 +5,24 @@ using TMPro;
 
 public class Conversation : MonoBehaviour
 {
+    public MouseVisibility mouse;
+
     public string[] questions;
+
     public TextMeshProUGUI text;
     public GameObject yes;
     public GameObject no;
-    public bool conversationstart;
     public GameObject canvas;
     public int number;
     public bool first;
 
-    // Start is called before the first frame update
     void Start()
     {
+        mouse.MouseMode(false);
+
         text.text = questions[0];
-        canvas.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Debug.Log("bing");
@@ -29,8 +30,7 @@ public class Conversation : MonoBehaviour
         if (number == 2 || number == 3 || number == 5 || number == 6)
         {
             canvas.SetActive(false);
-            //yes.SetActive(false);
-            //no.SetActive(false);
+            mouse.MouseMode(true);
         }
     }
 
